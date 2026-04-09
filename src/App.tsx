@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import { AppShell } from '@/components/layout/AppShell';
 import { HomePage } from '@/pages/HomePage';
 import { TrainPage } from '@/pages/TrainPage';
@@ -10,7 +10,7 @@ import { SettingsPage } from '@/pages/SettingsPage';
 
 export default function App() {
   return (
-    <BrowserRouter basename="/personal-training">
+    <HashRouter>
       <Routes>
         <Route path="/" element={<AppShell />}>
           <Route index element={<HomePage />} />
@@ -23,6 +23,6 @@ export default function App() {
           <Route path="settings" element={<SettingsPage />} />
         </Route>
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
