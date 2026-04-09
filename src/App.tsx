@@ -10,7 +10,7 @@ import { SettingsPage } from '@/pages/SettingsPage';
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/personal-training">
       <Routes>
         <Route path="/" element={<AppShell />}>
           <Route index element={<HomePage />} />
