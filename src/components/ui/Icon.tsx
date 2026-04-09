@@ -1,3 +1,4 @@
+import { createElement } from 'react';
 import { cn } from '@/lib/utils';
 import * as LucideIcons from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
@@ -16,9 +17,8 @@ export function Icon({ name, className }: IconWrapperProps) {
   const icon = (LucideIcons as unknown as Record<string, LucideIcon>)[formattedName];
 
   if (!icon) {
-    const Fallback = LucideIcons.HelpCircle;
-    return <Fallback className={cn('w-5 h-5', className)} />;
+    return createElement(LucideIcons.HelpCircle, { className: cn('w-5 h-5', className) });
   }
 
-  return icon({ className: cn('w-5 h-5', className) });
+  return createElement(icon, { className: cn('w-5 h-5', className) });
 }
