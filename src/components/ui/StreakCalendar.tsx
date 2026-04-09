@@ -43,43 +43,43 @@ export function StreakCalendar({ currentStreak, longestStreak, activeDays, class
   const weekDays = ['D', 'L', 'M', 'X', 'J', 'V', 'S'];
 
   return (
-    <div className={cn('bg-surface rounded-xl p-4', className)}>
+    <div className={cn('bg-surface rounded-2xl p-5', className)}>
       {/* Header */}
-      <div className="flex items-center justify-between mb-4">
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-warning/20 flex items-center justify-center">
-            <Icon name="Flame" className="w-4 h-4 text-warning" />
+      <div className="flex items-center justify-between mb-5">
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 rounded-xl bg-warning/20 flex items-center justify-center">
+            <Icon name="Flame" className="w-5 h-5 text-warning" />
           </div>
           <div>
-            <p className="text-sm font-medium text-text-primary">{currentStreak} días</p>
+            <p className="text-base font-semibold text-text-primary">{currentStreak} días</p>
             <p className="text-xs text-text-muted">Racha actual</p>
           </div>
         </div>
         <div className="text-right">
-          <p className="text-sm font-medium text-text-primary">{longestStreak} días</p>
+          <p className="text-base font-semibold text-text-primary">{longestStreak} días</p>
           <p className="text-xs text-text-muted">Mejor racha</p>
         </div>
       </div>
 
       {/* Calendar grid */}
       <div className="mb-2">
-        <p className="text-sm text-text-muted capitalize mb-2">{monthName}</p>
-        <div className="grid grid-cols-7 gap-1 mb-1">
+        <p className="text-sm font-medium text-text-primary capitalize mb-3">{monthName}</p>
+        <div className="grid grid-cols-7 gap-1.5 mb-2">
           {weekDays.map((day, index) => (
-            <div key={index} className="text-center text-xs text-text-subtle py-1">
+            <div key={index} className="text-center text-xs font-medium text-text-subtle py-2">
               {day}
             </div>
           ))}
         </div>
-        <div className="grid grid-cols-7 gap-1">
+        <div className="grid grid-cols-7 gap-1.5">
           {calendarDays.map(({ date, isActive }, index) => (
             <div
               key={index}
               className={cn(
-                'aspect-square rounded-md flex items-center justify-center text-xs',
+                'aspect-square rounded-lg flex items-center justify-center text-sm font-medium min-h-[36px]',
                 date
                   ? isActive
-                    ? 'bg-primary text-white font-medium'
+                    ? 'bg-primary text-white shadow-glow'
                     : 'bg-surface-elevated text-text-muted'
                   : 'bg-transparent'
               )}

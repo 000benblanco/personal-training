@@ -4,56 +4,60 @@ import { cn } from '@/lib/utils';
 import { Icon } from '@/components/ui/Icon';
 
 const navItems = [
-  { path: '/', label: 'Hoy', icon: 'Home' },
-  { path: '/train', label: 'Entreno', icon: 'Dumbbell' },
-  { path: '/yoga', label: 'Yoga', icon: 'Flower2' },
-  { path: '/breathing', label: 'Respiración', icon: 'Wind' },
-  { path: '/wellness', label: 'Bienestar', icon: 'Heart' },
-  { path: '/progress', label: 'Progreso', icon: 'TrendingUp' },
-  { path: '/settings', label: 'Ajustes', icon: 'Settings' },
+  { path: '/', label: 'Dashboard', icon: 'dashboard' },
+  { path: '/train', label: 'Routines', icon: 'fitness_center' },
+  { path: '/calm', label: 'Guided Sessions', icon: 'spa' },
+  { path: '/journey', label: 'Progress Metrics', icon: 'legend_toggle' },
 ];
 
 export function Sidebar() {
   const location = useLocation();
 
   return (
-    <aside className="hidden lg:flex flex-col w-64 bg-surface border-r border-border min-h-screen">
+    <aside className="fixed left-0 top-0 flex flex-col w-80 bg-surface h-full border-r border-slate-800/50 z-50">
       {/* Logo */}
-      <div className="p-6 border-b border-border">
-        <h1 className="text-lg font-semibold text-text-primary">
-          Training<span className="text-primary">App</span>
-        </h1>
-        <p className="text-xs text-text-muted mt-1">Tu entrenamiento personalizado</p>
+      <div className="px-8 py-8">
+        <div className="flex items-center gap-4 mb-8">
+          <div className="w-12 h-12 rounded-full bg-secondary-container"></div>
+          <div>
+            <h4 className="font-bold text-blue-300">Clinical Sanctuary</h4>
+            <p className="text-xs text-slate-400">Recovery Companion</p>
+          </div>
+        </div>
       </div>
 
       {/* Navigation */}
-      <nav className="flex-1 p-4 space-y-1">
+      <nav className="flex-1 px-6 space-y-1">
         {navItems.map((item) => {
-          const isActive = location.pathname === item.path;
+          const isActive = location.pathname === item.path || location.pathname.startsWith(item.path + '/');
 
           return (
             <NavLink
               key={item.path}
               to={item.path}
               className={cn(
-                'flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-150',
+                'flex items-center gap-4 px-6 py-4 transition-all duration-300',
                 isActive
-                  ? 'bg-primary/10 text-primary'
-                  : 'text-text-muted hover:bg-surface-elevated hover:text-text-primary'
+                  ? 'bg-blue-600/10 text-blue-400 border-r-4 border-blue-500 font-semibold'
+                  : 'text-slate-400 hover:bg-slate-800/30 hover:text-slate-200'
               )}
             >
-              <Icon name={item.icon} className="w-5 h-5" />
-              <span className="text-sm font-medium">{item.label}</span>
+              <Icon name={item.icon} className="text-xl" />
+              <span className="text-base">{item.label}</span>
             </NavLink>
           );
         })}
       </nav>
 
-      {/* Footer */}
-      <div className="p-4 border-t border-border">
-        <p className="text-xs text-text-subtle text-center">
-          v1.0.0 • Personal Training
-        </p>
+      {/* Footer - Settings */}
+      <div className="px-6 py-4 border-t border-slate-800/50">
+        <NavLink
+          to="/settings"
+          className="flex items-center gap-4 px-6 py-4 text-slate-400 hover:bg-slate-800/30 transition-all"
+        >
+          <Icon name="settings" className="text-xl" />
+          <span className="text-base">Settings</span>
+        </NavLink>
       </div>
     </aside>
   );

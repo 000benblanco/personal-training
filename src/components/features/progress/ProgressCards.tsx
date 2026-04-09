@@ -82,15 +82,20 @@ export function LevelIndicator({ level, xp, nextLevelXP, className }: LevelIndic
   const currentLevelXP = xp % 500;
 
   return (
-    <div className={cn('bg-surface rounded-xl p-4', className)}>
-      <div className="flex items-center justify-between mb-2">
-        <span className="text-sm font-medium text-text-primary">Nivel {level}</span>
-        <span className="text-xs text-text-muted">
+    <div className={cn('bg-surface rounded-2xl p-5', className)}>
+      <div className="flex items-center justify-between mb-3">
+        <div className="flex items-center gap-2">
+          <div className="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center">
+            <span className="text-sm font-bold text-primary">{level}</span>
+          </div>
+          <span className="text-sm font-semibold text-text-primary">Nivel {level}</span>
+        </div>
+        <span className="text-xs font-medium text-text-muted">
           {currentLevelXP} / {nextLevelXP} XP
         </span>
       </div>
 
-      <div className="h-2 bg-surface-elevated rounded-full overflow-hidden">
+      <div className="h-3 bg-surface-elevated rounded-full overflow-hidden">
         <div
           className="h-full bg-gradient-to-r from-primary to-primary-muted rounded-full transition-all duration-500"
           style={{ width: `${progress}%` }}
@@ -120,15 +125,15 @@ export function StatCard({
   const IconComponent = iconMap[icon] || HelpCircle;
 
   return (
-    <div className={cn('bg-surface rounded-xl p-4', className)}>
+    <div className={cn('bg-surface rounded-2xl p-5', className)}>
       <div className="flex items-start justify-between">
         <div>
-          <p className="text-xs text-text-muted uppercase tracking-wide">{title}</p>
-          <p className="text-2xl font-bold text-text-primary mt-1">{value}</p>
+          <p className="text-xs font-medium text-text-muted uppercase tracking-wide">{title}</p>
+          <p className="text-3xl font-bold text-text-primary mt-2">{value}</p>
           {subtitle && <p className="text-xs text-text-subtle mt-1">{subtitle}</p>}
         </div>
-        <div className={cn('w-10 h-10 rounded-lg bg-surface-elevated flex items-center justify-center')}>
-          {IconComponent && <IconComponent className={cn('w-5 h-5', color)} />}
+        <div className={cn('w-12 h-12 rounded-xl bg-surface-elevated flex items-center justify-center')}>
+          {IconComponent && <IconComponent className={cn('w-6 h-6', color)} />}
         </div>
       </div>
     </div>

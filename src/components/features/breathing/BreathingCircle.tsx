@@ -120,8 +120,8 @@ export function BreathingCircle({
   };
 
   return (
-    <div className={cn('flex flex-col items-center justify-center py-8', className)}>
-      <div className="relative w-48 h-48 flex items-center justify-center">
+    <div className={cn('flex flex-col items-center justify-center py-10', className)}>
+      <div className="relative w-64 h-64 flex items-center justify-center">
         <motion.div
           animate={phase}
           variants={variants}
@@ -131,7 +131,7 @@ export function BreathingCircle({
                        (pattern.holdIn || pattern.holdOut || 2),
             ease: 'easeInOut',
           }}
-          className="absolute inset-0 rounded-full bg-primary/20 blur-2xl"
+          className="absolute inset-0 rounded-full bg-primary/20 blur-3xl"
         />
 
         <motion.div
@@ -146,17 +146,17 @@ export function BreathingCircle({
           className="absolute inset-4 rounded-full bg-gradient-to-br from-primary to-primary-muted flex items-center justify-center shadow-glow"
         >
           <div className="text-center">
-            <p className="text-3xl font-semibold text-white">{timeLeft}</p>
-            <p className="text-xs text-white/70 uppercase tracking-wider mt-1">
+            <p className="text-5xl font-bold text-white">{timeLeft}</p>
+            <p className="text-base text-white/80 uppercase tracking-wider mt-2 font-semibold">
               {phaseLabels[phase]}
             </p>
           </div>
         </motion.div>
       </div>
 
-      <div className="mt-6 text-center">
-        <p className="text-text-muted text-sm">{cycleCount} ciclos completados</p>
-        <p className="text-text-subtle text-xs mt-1">Sigue el ritmo del círculo con tu respiración</p>
+      <div className="mt-8 text-center">
+        <p className="text-text-primary text-lg font-semibold">{cycleCount} ciclos completados</p>
+        <p className="text-text-muted text-sm mt-2">Sigue el ritmo del círculo con tu respiración</p>
       </div>
     </div>
   );

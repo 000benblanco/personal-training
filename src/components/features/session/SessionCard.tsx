@@ -52,43 +52,43 @@ export function SessionCard({
       variant={isRecommended ? 'elevated' : 'default'}
       className={cn(
         'relative overflow-hidden',
-        isRecommended && 'ring-1 ring-primary/30'
+        isRecommended && 'ring-2 ring-primary/30'
       )}
     >
       {isRecommended && (
-        <div className="absolute top-0 right-0 bg-primary/10 px-3 py-1 rounded-bl-lg">
-          <span className="text-xs font-medium text-primary">Recomendado</span>
+        <div className="absolute top-0 right-0 bg-primary/20 px-4 py-1.5 rounded-bl-xl">
+          <span className="text-xs font-semibold text-primary">Recomendado hoy</span>
         </div>
       )}
 
       <div className="flex items-start gap-4">
-        <div className={cn('w-12 h-12 rounded-lg flex items-center justify-center', config.bgColor)}>
-          <Icon name={config.icon} className={cn('w-6 h-6', config.color)} />
+        <div className={cn('w-14 h-14 rounded-xl flex items-center justify-center shrink-0', config.bgColor)}>
+          <Icon name={config.icon} className={cn('w-7 h-7', config.color)} />
         </div>
 
-        <div className="flex-1">
-          <span className="text-xs text-text-muted uppercase tracking-wide">
+        <div className="flex-1 min-w-0">
+          <span className="text-xs font-medium text-text-muted uppercase tracking-wide">
             {config.label}
           </span>
-          <h3 className="text-lg font-semibold text-text-primary mt-1">{title}</h3>
-          <p className="text-sm text-text-muted mt-1">{subtitle}</p>
+          <h3 className="text-lg font-bold text-text-primary mt-1 leading-tight">{title}</h3>
+          <p className="text-sm text-text-muted mt-1 leading-relaxed">{subtitle}</p>
 
-          <div className="flex items-center gap-4 mt-3 text-xs text-text-subtle">
-            <span className="flex items-center gap-1">
-              <Icon name="Clock" className="w-3.5 h-3.5" />
+          <div className="flex items-center gap-4 mt-4 text-sm text-text-subtle">
+            <span className="flex items-center gap-1.5">
+              <Icon name="Clock" className="w-4 h-4" />
               {duration} min
             </span>
-            <span className="flex items-center gap-1">
-              <Icon name="Signal" className="w-3.5 h-3.5" />
+            <span className="flex items-center gap-1.5">
+              <Icon name="Signal" className="w-4 h-4" />
               {difficultyLabels[difficulty]}
             </span>
           </div>
         </div>
       </div>
 
-      <Button onClick={onStart} className="w-full mt-4" size="lg">
+      <Button onClick={onStart} className="w-full mt-5" size="lg">
         Iniciar sesión
-        <Icon name="ArrowRight" className="w-4 h-4 ml-2" />
+        <Icon name="ArrowRight" className="w-5 h-5 ml-2" />
       </Button>
     </Card>
   );

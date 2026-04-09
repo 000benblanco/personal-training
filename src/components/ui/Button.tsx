@@ -11,16 +11,17 @@ export function Button({
   onClick,
 }: ButtonProps) {
   const variants = {
-    primary: 'bg-primary text-white hover:bg-primary-muted active:scale-[0.98]',
-    secondary: 'bg-surface-elevated text-text-primary hover:bg-border active:scale-[0.98]',
-    ghost: 'bg-transparent text-text-muted hover:bg-surface-elevated hover:text-text-primary',
-    danger: 'bg-danger text-white hover:bg-red-600 active:scale-[0.98]',
+    primary: 'bg-primary text-background hover:bg-primary/90 active:scale-[0.98] shadow-glow',
+    secondary: 'bg-surface-elevated text-text-primary hover:bg-surface-glass active:scale-[0.98] border border-border',
+    success: 'bg-success text-background hover:bg-success/90 active:scale-[0.98] shadow-glow-success',
+    ghost: 'bg-transparent text-text-muted hover:text-text-primary hover:bg-surface-elevated/50',
+    danger: 'bg-danger/20 text-danger hover:bg-danger/30 active:scale-[0.98]',
   };
 
   const sizes = {
-    sm: 'px-3 py-1.5 text-sm',
-    md: 'px-4 py-2 text-sm',
-    lg: 'px-6 py-3 text-base',
+    sm: 'px-4 py-2.5 text-sm min-h-[40px]',
+    md: 'px-5 py-3 text-sm min-h-[48px]',
+    lg: 'px-6 py-4 text-base min-h-[56px]',
   };
 
   return (
@@ -28,9 +29,10 @@ export function Button({
       onClick={onClick}
       disabled={disabled}
       className={cn(
-        'rounded-lg font-medium transition-all duration-150',
+        'rounded-xl font-semibold transition-all duration-200',
         'flex items-center justify-center gap-2',
         'disabled:opacity-50 disabled:cursor-not-allowed',
+        'focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 focus:ring-offset-background',
         variants[variant],
         sizes[size],
         className
