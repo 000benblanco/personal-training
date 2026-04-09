@@ -1,5 +1,7 @@
+import { useState } from 'react';
 import { Card } from '@/components/ui/Card';
 import { Icon } from '@/components/ui/Icon';
+import { Button } from '@/components/ui/Button';
 import { cn } from '@/lib/utils';
 import type { SafetyLevel } from '@/types';
 
@@ -11,9 +13,10 @@ interface ExerciseCardProps {
   reps?: string;
   adaptations: string[];
   safetyLevel: SafetyLevel;
+  howToSteps?: string[];
+  tips?: string[];
   isCompleted?: boolean;
   onComplete: () => void;
-  onViewDemo?: () => void;
 }
 
 const safetyConfig: Record<SafetyLevel, { color: string; bg: string; label: string }> = {
@@ -30,10 +33,12 @@ export function ExerciseCard({
   reps,
   adaptations,
   safetyLevel,
+  howToSteps = [],
+  tips = [],
   isCompleted,
   onComplete,
-  onViewDemo,
 }: ExerciseCardProps) {
+  const [showDetails, setShowDetails] = useState(false);
   const safety = safetyConfig[safetyLevel];
 
   return (
@@ -84,28 +89,72 @@ export function ExerciseCard({
         <div className="flex items-center gap-2 mb-2">
           <Icon name="Shield" className="w-4 h-4 text-warning" />
           <span className="text-xs font-medium text-text-muted uppercase tracking-wide">
-            Adaptaciones para tu rodilla
+            Adaptaciones para tu férula
           </span>
         </div>
         <ul className="space-y-1">
           {adaptations.map((adaptation, index) => (
             <li key={index} className="flex items-start gap-2 text-sm text-text-muted">
-              <span className="text-primary mt-1">•</span>
+              <span className="text-primary mt-0.5">•</span>
               {adaptation}
             </li>
           ))}
         </ul>
       </div>
 
-      <div className="flex gap-2 mt-4">
-        {onViewDemo && (
+      {/* How to do it section */}
+      {howToSteps.length > 0 && (
+        <div className="mt-4">
           <button
-            onClick={onViewDemo}
-            className="flex-1 py-2 px-4 rounded-lg border border-border text-sm text-text-muted hover:bg-surface-elevated transition-colors"
+            onClick={() => setShowDetails(!showDetails)}
+            className="flex items-center gap-2 text-sm text-primary hover:text-primary-muted transition-colors"
           >
-            Ver demostración
+            <Icon name="BookOpen" className="w-4 h-4" />
+            {showDetails ? 'Ocultar instrucciones' : 'Cómo hacerlo paso a paso'}
+            <Icon name={showDetails ? 'ChevronUp' : 'ChevronDown'} className="w-4 h-4 ml-auto" />
           </button>
-        )}
+
+          {showDetails && (
+            <div className="mt-3 space-y-4 animate-fade-in">
+              {/* Step by step */}
+              <div>
+                <h5 className="text-xs font-medium text-text-muted uppercase tracking-wide mb-2">
+                  Paso a paso
+                </h5>
+                <ol className="space-y-2">
+                  {howToSteps.map((step, index) => (
+                    <li key={index} className="flex items-start gap-2 text-sm text-text-muted">
+                      <span className="flex-shrink-0 w-5 h-5 rounded-full bg-primary/20 text-primary text-xs flex items-center justify-center mt-0.5">
+                        {index + 1}
+                      </span>
+                      <span>{step.replace(/^\d+\.\s*/, '')}</span>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+
+              {/* Tips */}
+              {tips.length > 0 && (
+                <div>
+                  <h5 className="text-xs font-medium text-text-muted uppercase tracking-wide mb-2">
+                    Consejos
+                  </h5>
+                  <ul className="space-y-1">
+                    {tips.map((tip, index) => (
+                      <li key={index} className="flex items-start gap-2 text-sm text-text-muted">
+                        <Icon name="Lightbulb" className="w-4 h-4 text-warning mt-0.5 flex-shrink-0" />
+                        {tip}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+          )}
+        </div>
+      )}
+
+      <div className="flex gap-2 mt-4">
         <button
           onClick={onComplete}
           disabled={isCompleted}

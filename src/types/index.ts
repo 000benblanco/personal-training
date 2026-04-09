@@ -32,6 +32,9 @@ export interface Exercise {
   adaptations: string[];
   safetyLevel: SafetyLevel;
   instructions: string[];
+  howToSteps: string[]; // Pasos detallados paso a paso
+  tips?: string[]; // Consejos útiles
+  imageUrl?: string; // URL de imagen de referencia (futuro)
 }
 
 // Rutina predefinida
