@@ -4,7 +4,7 @@ import path from 'path';
 import { VitePWA } from 'vite-plugin-pwa';
 
 export default defineConfig({
-  base: '/personal-training/',
+  base: './',
   plugins: [
     react(),
     VitePWA({
@@ -18,8 +18,8 @@ export default defineConfig({
         background_color: '#0F172A',
         display: 'standalone',
         orientation: 'portrait',
-        scope: '/personal-training/',
-        start_url: '/personal-training/',
+        scope: './',
+        start_url: './',
         icons: [
           {
             src: 'favicon.svg',
@@ -67,5 +67,8 @@ export default defineConfig({
     alias: {
       '@': path.resolve(__dirname, './src'),
     },
+  },
+  build: {
+    outDir: 'docs',
   },
 });
