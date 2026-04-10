@@ -1,0 +1,76 @@
+=======================================================
+   PERSONAL TRAINING APP - ACCESO RÁPIDO
+=======================================================
+
+📱 APLICACIÓN WEB (PWA)
+   URL: https://000benblanco.github.io/personal-training/
+
+🖥️ CÓMO ABRIR EN PC:
+
+   OPCIÓN 1 - Navegador (Recomendado):
+   -----------------------------------
+   1. Abre Chrome, Edge o Firefox
+   2. Ve a: https://000benblanco.github.io/personal-training/
+   3. Para instalar como app: 
+      - Chrome/Edge: Click en icono ➕ (instalar) en la barra de direcciones
+      - O menú ⋮ → "Instalar Personal Training"
+
+   OPCIÓN 2 - Acceso Directo Automático:
+   ------------------------------------
+   1. Doble click en "Abrir App.bat" (se abre en Chrome)
+   2. O doble click en "Abrir App.ps1" (se abre en Edge)
+
+   OPCIÓN 3 - Crear acceso directo manual:
+   ----------------------------------------
+   1. Click derecho en escritorio → Nuevo → Acceso Directo
+   2. Ubicación: https://000benblanco.github.io/personal-training/
+   3. Nombre: "Personal Training"
+   4. Click en Finalizar
+
+📲 CÓMO INSTALAR EN MÓVIL:
+   ------------------------
+   1. Abre la URL en Chrome/Safari
+   2. Menú → "Agregar a pantalla de inicio"
+   3. La app se instala como aplicación nativa
+
+=======================================================
+   ARCHIVOS EN ESTA CARPETA
+=======================================================
+
+📄 INSTRUCCIONES.txt      - Este archivo (guía completa)
+🚀 Abrir App.bat          - Abre la app en Chrome (doble click)
+🚀 Abrir App.ps1          - Abre la app en Edge (doble click)
+📱 manifest.webmanifest   - Configuración PWA
+
+=======================================================
+   NOTAS IMPORTANTES
+=======================================================
+
+✓ No necesitas instalar nada en el PC
+✓ Funciona offline después de la primera carga
+✓ Los datos se guardan localmente en el navegador
+✓ Compatible con Windows, Mac, Linux, Android, iOS
+
+✗ NO es un archivo .exe tradicional
+✗ Es una aplicación web progresiva (PWA)
+✗ Requiere navegador moderno (Chrome, Edge, Firefox, Safari)
+
+=======================================================
+   DESARROLLO / CÓDIGO FUENTE
+=======================================================
+
+Para modificar la app:
+1. Abre terminal en esta carpeta
+2. Ejecuta: npm run dev
+3. Edita archivos en /src
+4. Compila: npm run build
+5. Sube: git push origin master
+
+=======================================================
+   SOPORTE
+=======================================================
+
+GitHub: https://github.com/000benblanco/personal-training
+Email: [tu-email]
+
+=======================================================
