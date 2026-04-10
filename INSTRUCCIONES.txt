@@ -24,7 +24,7 @@
    ----------------------------------------
    1. Click derecho en escritorio → Nuevo → Acceso Directo
    2. Ubicación: https://000benblanco.github.io/personal-training/
-   3. Nombre: "Personal Training"
+   3. Nombre: "Sanctuary"
    4. Click en Finalizar
 
 📲 CÓMO INSTALAR EN MÓVIL:

@@ -20,7 +20,7 @@ export function Sidebar() {
         <div className="flex items-center gap-4 mb-8">
           <div className="w-12 h-12 rounded-full bg-secondary-container"></div>
           <div>
-            <h4 className="font-bold text-blue-300">Clinical Sanctuary</h4>
+            <h4 className="font-bold text-blue-300">Sanctuary</h4>
             <p className="text-xs text-slate-400">Recovery Companion</p>
           </div>
         </div>
