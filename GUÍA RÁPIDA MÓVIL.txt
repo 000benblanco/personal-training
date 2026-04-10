@@ -1,0 +1,75 @@
+╔═══════════════════════════════════════════════════════╗
+║     INSTALAR PERSONAL TRAINING EN MÓVIL            ║
+║           (Vanadium / Chrome / Safari)              ║
+╚═══════════════════════════════════════════════════════╝
+
+📱 PASOS RÁPIDOS (2 minutos):
+
+1️⃣  Abre el navegador (Vanadium, Chrome, Safari)
+
+2️⃣  Escribe la URL:
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    000benblanco.github.io/personal-training
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+3️⃣  Espera que cargue la página
+
+4️⃣  Click en menú ⋮ (tres puntos arriba)
+    → "Agregar a pantalla de inicio"
+    → "Instalar app"
+
+5️⃣  Confirmar "Agregar"
+
+6️⃣  ¡Listo! Busca el icono 🥊 en tu pantalla de inicio
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ UNA VEZ INSTALADA:
+
+• Funciona SIN internet (offline)
+• Guarda tu progreso automáticamente
+• Se abre como app nativa (pantalla completa)
+• No necesitas abrir el navegador
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🔧 SI USAS VANADIUM (GrapheneOS):
+
+Configuración → Privacidad → Permisos del sitio:
+• Notificaciones: PERMITIR
+• Almacenamiento: PERMITIR  
+• JavaScript: PERMITIR
+
+(Esto asegura que guarde tu progreso)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+⚠️ IMPORTANTE:
+
+La primera vez necesitas internet para cargar.
+Después funciona 100% offline.
+
+No borres datos de Vanadium/Chrome o perderás tu progreso.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📲 COMPARTIR CON AMIGOS:
+
+Manda este link:
+https://000benblanco.github.io/personal-training/
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🆘 PROBLEMAS?
+
+• No ves "Agregar a pantalla": Recarga la página (pull down)
+• No aparece el icono: Reinicia el teléfono
+• No guarda progreso: Activa permisos de almacenamiento
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Guía completa: INSTALAR EN VANADIUM.txt
+
+╔═══════════════════════════════════════════════════════╗
+║  Personal Training - Tu compañero de recuperación      ║
+╚═══════════════════════════════════════════════════════╝

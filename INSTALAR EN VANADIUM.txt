@@ -1,0 +1,207 @@
+=======================================================
+   INSTALAR EN MÓVIL - VANADIUM BROWSER
+   Personal Training App
+=======================================================
+
+📱 VANADIUM (GrapheneOS / Android)
+=======================================================
+
+Vanadium es el navegador recomendado para GrapheneOS.
+Funciona igual que Chrome pero con más privacidad.
+
+
+=======================================================
+   PASO A PASO - INSTALACIÓN
+=======================================================
+
+1️⃣ ABRIR LA APP EN VANADIUM
+---------------------------
+• Abre Vanadium (navegador)
+• Ve a la URL:
+  
+  https://000benblanco.github.io/personal-training/
+
+• Espera a que cargue completamente (primera vez necesita internet)
+
+
+2️⃣ INSTALAR COMO APP NATIVA
+---------------------------
+• Click en el menú ⋮ (tres puntos arriba-derecha)
+• Busca: "Agregar a pantalla de inicio" 
+  (o "Install" / "Add to Home screen")
+• Click en esa opción
+
+• Aparecerá ventana de confirmación:
+  ┌─────────────────────────────┐
+  │  Agregar a pantalla de inicio?  │
+  │                             │
+  │  [Cancelar]  [Agregar]      │
+  └─────────────────────────────┘
+
+• Click en "Agregar"
+
+
+3️⃣ VERIFICAR INSTALACIÓN
+------------------------
+• Cierra Vanadium completamente
+• Ve a tu pantalla de inicio (launcher)
+• Busca el icono nuevo:
+  
+  🥊 "Personal Training" 
+  (icono azul con guante de boxeo)
+
+• Click en el icono → Se abre como app nativa
+  (sin barra de direcciones, pantalla completa)
+
+
+=======================================================
+   CONFIGURACIÓN RECOMENDADA EN VANADIUM
+=======================================================
+
+⚠️ PERMISOS (Importante para PWA)
+----------------------------------
+Vanadium puede bloquear algunas funciones por privacidad.
+Configura esto para que la app funcione 100%:
+
+1. Abre Vanadium
+2. Ve a: Configuración → Privacidad y seguridad
+3. Busca "Permisos del sitio" (Site permissions)
+
+   PERMISOS A CONFIGURAR:
+   ━━━━━━━━━━━━━━━━━━━━━━
+   • Notificaciones: PERMITIR (para recordatorios)
+   • Almacenamiento local: PERMITIR (guarda tu progreso)
+   • JavaScript: PERMITIR (requerido para la app)
+   • Imágenes: PERMITIR
+
+
+=======================================================
+   USO OFFLINE EN VANADIUM
+=======================================================
+
+✓ PRIMERA CARGA (Requiere internet):
+   - Abre la app estando online
+   - Espera que cargue completamente
+   - Navega por todas las pestañas (Inicio, Entreno, Calma, Mi Camino)
+   - Esto guarda todo en caché
+
+✓ MODO OFFLINE (Sin internet):
+   - Abre el icono de la app (incluso sin datos/wifi)
+   - Funciona 100%: timer, rutinas, registro de sesiones
+   - Tus datos se guardan localmente
+   - La próxima vez con internet se sincroniza (si hubiera servidor, pero es local)
+
+⚠️ NOTA: Vanadium puede borrar datos si:
+   - Limpias caché manualmente
+   - Usas "Cerrar todas las pestañas y borrar datos"
+   - Configuras borrado automático al cerrar
+
+   PARA EVITARLO:
+   Configuración → Privacidad → "Borrar datos al cerrar" → DESACTIVAR
+   (o excluye Vanadium de esa opción)
+
+
+=======================================================
+   DIFERENCIAS CON CHROME
+=======================================================
+
+| Característica | Chrome | Vanadium |
+|----------------|--------|----------|
+| Instalación PWA | Menú ⋮ → Instalar | Menú ⋮ → Agregar a inicio |
+| Notificaciones | Sí nativo | Requiere permiso manual |
+| Almacenamiento | Automático | Puede pedir confirmación |
+| Privacidad | Estándar | Alta (mejor) |
+| Funcionalidad PWA | 100% | 100% (si configuras permisos) |
+
+
+=======================================================
+   SOLUCIÓN DE PROBLEMAS
+=======================================================
+
+❓ No aparece "Agregar a pantalla de inicio"
+→ Asegúrate de que la página cargó completamente
+→ Prueba recargar (pull down para refrescar)
+→ Verifica que tienes Vanadium actualizado
+
+❓ El icono no aparece en el launcher
+→ Algunos launchers tardan en actualizar
+→ Reinicia el launcher o el teléfono
+→ Busca en "Aplicaciones" en los ajustes del sistema
+
+❓ La app no guarda mi progreso
+→ Vanadium → Configuración → Privacidad → 
+  "Borrar datos al cerrar" → DESACTIVAR
+→ O agrega excepción para este sitio
+
+❓ Timer no funciona en segundo plano
+→ Android mata apps en segundo plano para ahorrar batería
+→ Configuración del sistema → Batería → 
+  Optimización de batería → Excluir "Personal Training"
+
+
+=======================================================
+   ATAJOS ÚTILES EN VANADIUM
+=======================================================
+
+• Recargar página: Deslizar hacia abajo
+• Menú rápido: ⋮ (tres puntos)
+• Cambiar pestañas: Cuadrado en barra inferior
+• Cerrar todo: Menú ⋮ → "Cerrar todas las pestañas"
+
+
+=======================================================
+   RESUMEN RÁPIDO
+=======================================================
+
+1. Abre https://000benblanco.github.io/personal-training/ en Vanadium
+2. Menú ⋮ → "Agregar a pantalla de inicio"
+3. Click "Agregar"
+4. Busca icono 🥊 en tu pantalla de inicio
+5. ¡Listo! Usa como app nativa
+
+✓ Funciona offline después de primera carga
+✓ Datos guardados localmente
+✓ Sin necesidad de Google Play
+✓ 100% privado (Vanadium no comparte datos)
+
+
+=======================================================
+   COMPARACIÓN: VANADIUM vs INSTALACIÓN NORMAL
+=======================================================
+
+INSTALACIÓN TRADICIONAL (Play Store):
+❌ Requiere cuenta Google
+❌ Necesita Play Services
+❌ Más permisos de los necesarios
+❌ Actualizaciones automáticas (a veces no deseadas)
+
+PWA EN VANADIUM:
+✓ Sin cuenta Google necesaria
+✓ Sin Play Services
+✓ Solo permisos que tú das
+✓ Tú controlas cuándo actualizar (recarga la página)
+✓ Más privacidad
+✓ Mismo funcionamiento
+
+
+=======================================================
+   LINK DIRECTO
+=======================================================
+
+https://000benblanco.github.io/personal-training/
+
+Guarda este link en tus favoritos de Vanadium
+para acceso rápido antes de instalar.
+
+
+=======================================================
+   SOPORTE VANADIUM/GRAPHENEOS
+=======================================================
+
+Documentación oficial:
+https://grapheneos.org/usage#web-browsing
+
+Foro de ayuda:
+https://discuss.grapheneos.org/
+
+=======================================================
