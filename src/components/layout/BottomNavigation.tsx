@@ -3,10 +3,10 @@ import { cn } from '@/lib/utils';
 import { Icon } from '@/components/ui/Icon';
 
 const navItems = [
-  { path: '/', label: 'Home', icon: 'home' },
-  { path: '/train', label: 'Training', icon: 'fitness_center' },
-  { path: '/calm', label: 'Calm', icon: 'self_improvement' },
-  { path: '/journey', label: 'Journey', icon: 'auto_graph' },
+  { path: '/', label: 'Inicio', icon: 'home' },
+  { path: '/train', label: 'Entreno', icon: 'fitness_center' },
+  { path: '/wellness', label: 'Calma', icon: 'self_improvement' },
+  { path: '/progress', label: 'Mi Camino', icon: 'auto_graph' },
 ];
 
 export function BottomNavigation() {
