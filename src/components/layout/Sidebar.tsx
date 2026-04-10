@@ -4,10 +4,10 @@ import { cn } from '@/lib/utils';
 import { Icon } from '@/components/ui/Icon';
 
 const navItems = [
-  { path: '/', label: 'Dashboard', icon: 'dashboard' },
-  { path: '/train', label: 'Routines', icon: 'fitness_center' },
-  { path: '/calm', label: 'Guided Sessions', icon: 'spa' },
-  { path: '/journey', label: 'Progress Metrics', icon: 'legend_toggle' },
+  { path: '/', label: 'Inicio', icon: 'dashboard' },
+  { path: '/train', label: 'Entrenamiento', icon: 'fitness_center' },
+  { path: '/wellness', label: 'Calma', icon: 'spa' },
+  { path: '/progress', label: 'Mi Camino', icon: 'legend_toggle' },
 ];
 
 export function Sidebar() {
@@ -56,7 +56,7 @@ export function Sidebar() {
           className="flex items-center gap-4 px-6 py-4 text-slate-400 hover:bg-slate-800/30 transition-all"
         >
           <Icon name="settings" className="text-xl" />
-          <span className="text-base">Settings</span>
+          <span className="text-base">Ajustes</span>
         </NavLink>
       </div>
     </aside>
