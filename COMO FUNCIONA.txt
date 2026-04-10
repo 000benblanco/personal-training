@@ -1,0 +1,210 @@
+=======================================================
+   ¿CÓMO FUNCIONA LA APP?
+   Guía de uso para Personal Training
+=======================================================
+
+📱 ¿QUÉ ES ESTA APLICACIÓN?
+=======================================================
+
+Es una PWA (Progressive Web App) diseñada específicamente para 
+rehabilitación tras resección de cuádriceps (70% resecado, uso de 
+férula, sin poder arrodillarse, correr ni saltar).
+
+✓ Funciona 100% offline después de la primera carga
+✓ Guarda tu progreso localmente (localStorage)
+✓ No requiere login ni conexión a internet
+✓ Se instala como app nativa en móvil y PC
+
+
+=======================================================
+   ESTRUCTURA DE LA APP
+=======================================================
+
+🏠 INICIO (Mi Ritual)
+---------------------
+• Selector de estado de ánimo (4 opciones)
+• Tarjeta de entrenamiento del día (adaptada a tu semana)
+• Acceso rápido a respiración/calma
+• Gráfico de progreso semanal
+• Anillo de progreso hacia tu meta
+
+💪 ENTRENO (Training)
+---------------------
+• Timer con rondas (ej: 3 rondas de 3 minutos)
+• Botones: Pausa / Saltar / Terminar
+• Lista de ejercicios adaptados a tu rodilla
+• Tracker de movilidad exterior (simulado)
+• Consejos de recuperación post-sesión
+
+🧘 CALMA (Wellness)
+-------------------
+• Respiración guiada (Box Breathing 4-4-4-4)
+• Visualización animada del círculo de respiración
+• Escaneo corporal guiado (12 min)
+• Grounding 5-4-3-2-1 (técnica anti-ansiedad)
+• Biblioteca de meditaciones (audio/texto)
+
+📊 MI CAMINO (Progress)
+-----------------------
+• Registro de sensaciones post-sesión
+• Gráfico de resiliencia semanal
+• Composición corporal (peso)
+• Frase motivacional del día
+• Biblioteca de lecturas (fisiología, psicología)
+
+
+=======================================================
+   ¿CÓMO CAMBIA CADA DÍA?
+=======================================================
+
+La app tiene 3 sistemas que evolucionan:
+
+1️⃣ SISTEMA DE RACHAS (Streak)
+------------------------------
+• Cada día que entras y completas algo → +1 día
+• Si faltas 1 día → racha se reinicia
+• Visual: Barra semanal (L M X J V S D)
+• Días activos se marcan en verde (tertiary)
+
+2️⃣ SISTEMA DE NIVELES (XP)
+---------------------------
+• Cada sesión completada → +XP
+• Niveles: 1, 2, 3... (cada 500 XP subes nivel)
+• Visual: Anillo de progreso en Inicio
+• Motivación: "Faltan X sesiones para siguiente fase"
+
+3️⃣ RUTINAS ADAPTATIVAS
+----------------------
+• Semanas 1-2: Movilidad suave, respiración
+• Semanas 3-4: Boxeo sombra, estiramientos
+• Semanas 5-6: Saco ligero, bandas
+• Semanas 7-8: Aumento de carga progresivo
+• Semanas 9-12: Entrenamiento completo adaptado
+
+CÓMO SE CALCULA TU SEMANA:
+• La app cuenta desde tu fecha de cirugía
+• O manualmente en ajustes (si lo configuraste)
+• Ejemplo: Si estás en semana 5 → ves rutinas de semanas 5-6
+
+
+=======================================================
+   ¿LAS IMÁGENES CAMBIAN?
+=======================================================
+
+🔴 IMÁGENES ESTÁTICAS (No cambian)
+----------------------------------
+Las imágenes que ves son URLs fijas de Google AI (Imagen 3):
+• Fondo de boxeo en tarjeta de entreno
+• Fondo de meditación en tarjeta de calma
+• Fotos de perfil (avatars genéricos)
+• Imágenes de la biblioteca de lecturas
+
+Estas imágenes son decorativas y NO cambian dinámicamente.
+Son parte del diseño "Clinical Sanctuary".
+
+🟢 LO QUE SÍ CAMBIA VISUALMENTE:
+--------------------------------
+• Altura de las barras del gráfico semanal (según tu actividad)
+• Color de los días activos (gris → verde)
+• Porcentaje del anillo de progreso
+• Número de racha y nivel
+• Textos de rutinas (según tu fase de recuperación)
+
+
+=======================================================
+   FLUJO TÍPICO DE USO
+=======================================================
+
+MAÑANA (5 min):
+1. Abrir app
+2. Seleccionar estado de ánimo (¿Cómo te sientes?)
+3. Ver rutina recomendada del día
+4. (Opcional) 5 min de respiración Box Breathing
+
+ENTRENO (30-45 min):
+1. Click en "Iniciar Sesión"
+2. Timer con rondas automáticas
+3. Pausar si necesitas descanso extra
+4. Saltar a siguiente ejercicio
+5. "Terminar Entrenamiento" → guarda sesión
+
+POST-ENTRENO (3 min):
+1. Ir a "Mi Camino"
+2. Registrar sensación del cuádriceps (emoji)
+3. Ver progreso semanal actualizado
+4. Leer frase motivacional del día
+
+NOCHE (opcional):
+• Escaneo corporal de 12 min para relajación
+• Grounding si hay dolor/ansiedad
+
+
+=======================================================
+   DATOS GUARDADOS (LocalStorage)
+=======================================================
+
+La app guarda en tu navegador:
+✓ Historial de sesiones (fecha, tipo, duración)
+✓ Racha actual y máxima
+✓ XP y nivel
+✓ Días activos del calendario
+✓ Estado de ánimo registrado
+✓ Preferencias de usuario
+
+⚠️ IMPORTANTE: Si borras datos del navegador/caché,
+perderás tu progreso. No hay backup en la nube.
+
+
+=======================================================
+   PREGUNTAS FRECUENTES
+=======================================================
+
+❓ ¿Por qué no hay imágenes de mi progreso físico?
+→ La app no usa cámara. Es por privacidad y simplicidad.
+
+❓ ¿Puedo cambiar la rutina manualmente?
+→ Sí, en "Entreno" puedes elegir entre todas las rutinas
+   disponibles para tu fase de recuperación.
+
+❓ ¿Qué pasa si hago 2 sesiones en un día?
+→ ¡Perfecto! Suma doble XP y cuenta para tu racha.
+
+❓ ¿Las meditaciones tienen audio real?
+→ No, son guías de texto interactivas. Para audio real
+   necesitarías archivos MP3 (no incluidos por tamaño).
+
+❓ ¿Puedo usar la app sin internet?
+→ Sí, después de la primera carga funciona offline.
+
+
+=======================================================
+   CONSEJOS DE USO
+=======================================================
+
+💡 Instala la app en tu móvil:
+   Chrome → Menú → "Agregar a pantalla de inicio"
+
+💡 Usa el modo "app" en PC:
+   Chrome ⋮ → "Más herramientas" → "Crear acceso directo"
+   → Marca "Abrir como ventana"
+
+💡 Configura recordatorios:
+   Usa la app de recordatorios de tu móvil para
+   notificarte de tu sesión diaria.
+
+💡 Sé honesto con el registro de sensaciones:
+   Ayuda a ver patrones (¿peor después de qué ejercicios?)
+
+
+=======================================================
+   CONTACTO Y DESARROLLO
+=======================================================
+
+GitHub: https://github.com/000benblanco/personal-training
+
+Para modificar la app:
+1. Editar archivos en /src/pages/
+2. npm run build
+3. git push origin master
+
+=======================================================
