@@ -17,14 +17,15 @@ export function HomePage() {
     { id: 'strained', icon: 'sentiment_dissatisfied', label: 'Tensionado' },
   ];
 
+  // Datos de ejemplo a cero - se actualizarán con datos reales del usuario
   const weeklyData = [
-    { day: 'L', height: 'h-12', color: 'bg-tertiary' },
-    { day: 'M', height: 'h-20', color: 'bg-tertiary' },
-    { day: 'X', height: 'h-16', color: 'bg-tertiary' },
-    { day: 'J', height: 'h-24', color: 'bg-secondary' },
-    { day: 'V', height: 'h-10', color: 'bg-surface-container-highest' },
-    { day: 'S', height: 'h-8', color: 'bg-surface-container-highest' },
-    { day: 'D', height: 'h-12', color: 'bg-surface-container-highest' },
+    { day: 'L', height: 'h-4', color: 'bg-surface-container-highest' },
+    { day: 'M', height: 'h-4', color: 'bg-surface-container-highest' },
+    { day: 'X', height: 'h-4', color: 'bg-surface-container-highest' },
+    { day: 'J', height: 'h-4', color: 'bg-surface-container-highest' },
+    { day: 'V', height: 'h-4', color: 'bg-surface-container-highest' },
+    { day: 'S', height: 'h-4', color: 'bg-surface-container-highest' },
+    { day: 'D', height: 'h-4', color: 'bg-surface-container-highest' },
   ];
 
   return (
@@ -91,10 +92,10 @@ export function HomePage() {
           <div className="absolute bottom-0 left-0 right-0 p-5 space-y-3">
             <div className="flex items-center gap-3 flex-wrap">
               <span className="bg-secondary/20 text-secondary px-3 py-1 rounded-full text-[0.65rem] uppercase tracking-wider font-label">
-                Alta Intensidad
+                Entrenamiento
               </span>
               <span className="text-on-surface-variant font-label text-[0.65rem] uppercase tracking-wider">
-                32 MIN
+                Selecciona tu rutina
               </span>
             </div>
             <h3 className="text-[1.25rem] md:text-[1.5rem] font-bold text-on-surface">
@@ -118,16 +119,16 @@ export function HomePage() {
           className="md:col-span-4 group relative overflow-hidden rounded-xl bg-tertiary-container min-h-[280px] md:min-h-0 cursor-pointer"
           onClick={() => navigate('/calm')}
         >
-          <div className="absolute inset-0 opacity-30">
+          <div className="absolute inset-0 opacity-40">
             <img 
-              alt="Meditación" 
+              alt="Respiración" 
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBw6z71jiihL5sw8POoLgvLUkUUirDhZAYG2KpQtBAg_EyiDsk4JA26mkw-A2CqaQ0zPOoAZCGXRTB1kcYOo1frcE1hUcpgfmOlXafWq4rVaDMUxTtfMRpiubzLFBg6QUInWVHGZXwUVDZqmXmJU7FocK0N2lr0pWdUpuAiKVsi_MBxOWlAvHBcR6De53dCu2pG1kBt_c567XIfP1KsqfAjW0z-6DuZ8aZJ6z95wwiyMPXc6OKG5UEL4c0goBARUH7WTDWgPw29EYE" 
+              src="https://images.unsplash.com/photo-1506126613408-7d7868ed7e1b?w=800&q=80" 
             />
           </div>
           <div className="relative h-full flex flex-col justify-between p-5">
             <div>
-              <Icon name="self_care" className="text-tertiary text-3xl mb-3" />
+              <Icon name="air" className="text-tertiary text-3xl mb-3" />
               <h3 className="text-[1.25rem] font-bold text-tertiary leading-tight">
                 Respiración<br/>Relajante
               </h3>
@@ -153,7 +154,7 @@ export function HomePage() {
               <circle className="text-secondary" cx="72" cy="72" fill="transparent" r="48" stroke="currentColor" strokeDasharray="302" strokeDashoffset="60" strokeLinecap="round" strokeWidth="10"></circle>
             </svg>
             <div className="absolute flex flex-col items-center">
-              <span className="text-xl font-black text-on-surface">75%</span>
+              <span className="text-xl font-black text-on-surface">0%</span>
               <span className="text-[0.55rem] uppercase tracking-widest text-on-surface-variant font-label">
                 Meta Semanal
               </span>
@@ -163,9 +164,9 @@ export function HomePage() {
           <div className="flex-1 space-y-4 w-full">
             <div className="flex justify-between items-start">
               <div className="space-y-1">
-                <h4 className="text-lg font-bold">Hito: Fase de Entrenamiento 2</h4>
+                <h4 className="text-lg font-bold">Comienza tu viaje</h4>
                 <p className="text-on-surface-variant text-sm">
-                  Te faltan 3 sesiones para aumentar la intensidad de tu rutina.
+                  Completa tu primera sesión para empezar a construir tu progreso.
                 </p>
               </div>
               <Icon name="auto_graph" className="text-secondary text-xl" />
