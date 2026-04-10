@@ -37,7 +37,7 @@ export function HomePage() {
             Mi Ritual • Hoy
           </span>
           <h2 className="text-[2.5rem] md:text-[3.5rem] font-black tracking-tighter leading-tight text-on-surface">
-            La fuerza está en la pausa.
+            Sin disciplina no hay resultados.
           </h2>
         </div>
 
