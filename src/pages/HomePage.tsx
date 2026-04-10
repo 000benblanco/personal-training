@@ -2,12 +2,38 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Icon } from '@/components/ui/Icon';
 import { useAppStore } from '@/lib/stores/appStore';
+import { routines } from '@/lib/data/routines';
 
 type Mood = 'energized' | 'balanced' | 'recovering' | 'strained';
+
+// Función para calcular semana actual (simulada - luego se conecta a settings)
+function getCurrentWeek(): number {
+  // Por defecto semana 1 para nuevos usuarios
+  return 1;
+}
+
+// Obtener rutina recomendada según semana
+function getTodayRoutine() {
+  const week = getCurrentWeek();
+  const weekRanges: Record<string, number> = {
+    '1-2': 1, '3-4': 3, '5-6': 5, '7-8': 7, '9-12': 9
+  };
+  
+  // Buscar primera rutina de la semana actual
+  const targetWeekRange = Object.keys(weekRanges).find(range => {
+    const start = weekRanges[range];
+    const end = range === '9-12' ? 12 : start + 1;
+    return week >= start && week <= end;
+  }) || '1-2';
+  
+  return routines.find(r => r.weekRange === targetWeekRange) || routines[0];
+}
 
 export function HomePage() {
   const navigate = useNavigate();
   const { progress } = useAppStore();
+  const todayRoutine = getTodayRoutine();
+  const currentWeek = getCurrentWeek();
   const [selectedMood, setSelectedMood] = useState<Mood>('balanced');
 
   const moods: { id: Mood; icon: string; label: string }[] = [
@@ -92,32 +118,39 @@ export function HomePage() {
           <div className="absolute bottom-0 left-0 right-0 p-5 space-y-3">
             <div className="flex items-center gap-3 flex-wrap">
               <span className="bg-secondary/20 text-secondary px-3 py-1 rounded-full text-[0.65rem] uppercase tracking-wider font-label">
-                Entrenamiento
+                Semana {currentWeek}
               </span>
               <span className="text-on-surface-variant font-label text-[0.65rem] uppercase tracking-wider">
-                Selecciona tu rutina
+                Tu rutina de hoy
               </span>
             </div>
             <h3 className="text-[1.25rem] md:text-[1.5rem] font-bold text-on-surface">
-              Boxeo y Estabilidad de Core
+              {todayRoutine?.title || 'Boxeo y Estabilidad de Core'}
             </h3>
             <p className="text-on-surface-variant max-w-md text-sm line-clamp-2">
-              Sesión enfocada en técnica de boxeo shadow y ejercicios de estabilidad. Diseñada para proteger la pierna izquierda mientras entrenas.
+              {todayRoutine?.subtitle || 'Sesión enfocada en técnica de boxeo shadow y ejercicios de estabilidad.'}
             </p>
             <button 
-              onClick={(e) => { e.stopPropagation(); navigate('/train'); }}
+              onClick={(e) => { 
+                e.stopPropagation(); 
+                if (todayRoutine) {
+                  navigate(`/train/${todayRoutine.id}`);
+                } else {
+                  navigate('/train');
+                }
+              }}
               className="h-12 w-full md:w-auto px-6 bg-primary text-on-primary rounded-lg font-bold flex items-center justify-center gap-2 hover:bg-primary-fixed-dim active:scale-95 transition-all text-sm"
             >
               <Icon name="play_arrow" filled />
-              INICIAR SESIÓN
+              INICIAR SESIÓN DE HOY
             </button>
           </div>
         </div>
 
-        {/* Calm Moment Card */}
+        {/* Calm Moment Card - A demanda */}
         <div 
           className="md:col-span-4 group relative overflow-hidden rounded-xl bg-tertiary-container min-h-[280px] md:min-h-0 cursor-pointer"
-          onClick={() => navigate('/calm')}
+          onClick={() => navigate('/wellness')}
         >
           <div className="absolute inset-0 opacity-40">
             <img 
@@ -126,19 +159,27 @@ export function HomePage() {
               src="https://images.unsplash.com/photo-1506126613408-7d7868ed7e1b?w=800&q=80" 
             />
           </div>
+          <div className="absolute top-4 right-4">
+            <span className="bg-surface/60 text-on-surface px-2 py-1 rounded-full text-[0.6rem] uppercase tracking-wider font-label">
+              A demanda
+            </span>
+          </div>
           <div className="relative h-full flex flex-col justify-between p-5">
             <div>
               <Icon name="air" className="text-tertiary text-3xl mb-3" />
               <h3 className="text-[1.25rem] font-bold text-tertiary leading-tight">
-                Respiración<br/>Relajante
+                Calma y<br/>Respiración
               </h3>
             </div>
             <div className="space-y-4">
               <p className="text-on-tertiary-container/80 text-xs font-medium leading-relaxed">
-                Resetea tu sistema nervioso después del estrés físico. 8 minutos de respiración profunda.
+                Ejercicios de respiración y meditación para después del entreno o cuando lo necesites.
               </p>
-              <button className="h-11 w-full glass border border-tertiary/20 text-tertiary rounded-lg font-bold flex items-center justify-center gap-2 hover:bg-tertiary/10 transition-all text-sm">
-                RESPIRAR
+              <button 
+                onClick={(e) => { e.stopPropagation(); navigate('/wellness'); }}
+                className="h-11 w-full glass border border-tertiary/20 text-tertiary rounded-lg font-bold flex items-center justify-center gap-2 hover:bg-tertiary/10 transition-all text-sm"
+              >
+                IR A CALMA
               </button>
             </div>
           </div>

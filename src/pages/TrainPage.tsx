@@ -8,6 +8,11 @@ import { getExerciseById } from '@/lib/data/exercises';
 import { cn } from '@/lib/utils';
 import type { SessionType, Routine } from '@/types';
 
+// Función para obtener semana actual (simulada - luego se conecta a settings)
+function getCurrentWeek(): number {
+  return 1; // Por defecto semana 1 para nuevos usuarios
+}
+
 export function TrainPage() {
   const { routineId } = useParams();
   const [searchParams] = useSearchParams();
@@ -285,8 +290,21 @@ export function TrainPage() {
   return <RoutinesList />;
 }
 
+// Obtener rutina recomendada según semana
+function getTodayRoutine() {
+  const week = getCurrentWeek();
+  const targetWeekRange = week <= 2 ? '1-2' : 
+                          week <= 4 ? '3-4' : 
+                          week <= 6 ? '5-6' : 
+                          week <= 8 ? '7-8' : '9-12';
+  
+  return routines.find(r => r.weekRange === targetWeekRange) || routines[0];
+}
+
 function RoutinesList() {
   const navigate = useNavigate();
+  const currentWeek = getCurrentWeek();
+  const todayRoutine = getTodayRoutine();
 
   const routinesByWeek: Record<string, { label: string; routines: Routine[] }> = {
     '1-2': { label: 'Semanas 1-2', routines: [] },
@@ -309,27 +327,75 @@ function RoutinesList() {
     <div className="space-y-8 animate-fade-in">
       <div>
         <h1 className="text-2xl font-bold text-on-surface tracking-tight">Entrenamiento</h1>
-        <p className="text-on-surface-variant mt-1">Selecciona tu rutina personalizada</p>
+        <p className="text-on-surface-variant mt-1">Selecciona tu rutina o usa la recomendada para hoy</p>
       </div>
 
+      {/* Rutina de Hoy - Destacada */}
+      {todayRoutine && (
+        <div className="bg-secondary-container rounded-xl p-6 border border-secondary/20">
+          <div className="flex items-center gap-2 mb-3">
+            <span className="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+            <span className="text-secondary text-[0.75rem] uppercase tracking-[0.05em] font-medium font-label">
+              Rutina de Hoy - Semana {currentWeek}
+            </span>
+          </div>
+          <div 
+            onClick={() => navigate(`/train/${todayRoutine.id}`)}
+            className="cursor-pointer hover:bg-surface-container-high/50 rounded-lg p-4 transition-all"
+          >
+            <div className="flex justify-between items-start">
+              <div>
+                <h3 className="text-lg font-bold text-on-surface">{todayRoutine.title}</h3>
+                <p className="text-sm text-on-surface-variant mt-1">{todayRoutine.subtitle}</p>
+                <div className="flex items-center gap-4 mt-3">
+                  <span className="text-[0.75rem] text-secondary font-medium">{todayRoutine.duration} min</span>
+                  <span className="text-[0.75rem] text-on-surface-variant capitalize">{todayRoutine.type}</span>
+                </div>
+              </div>
+              <button className="h-12 px-6 bg-primary text-on-primary rounded-lg font-bold flex items-center gap-2 hover:bg-primary-fixed-dim active:scale-95 transition-all">
+                <Icon name="play_arrow" filled />
+                EMPEZAR
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Todas las rutinas por semana */}
       <div className="space-y-8">
+        <h2 className="text-sm font-semibold text-on-surface-variant uppercase tracking-wide">
+          Todas las rutinas disponibles
+        </h2>
         {Object.entries(routinesByWeek).map(([key, { label, routines }]) => (
           routines.length > 0 && (
             <div key={key}>
-              <h2 className="text-sm font-semibold text-on-surface-variant uppercase tracking-wide mb-4">{label}</h2>
-              <div className="space-y-4">
+              <h3 className="text-xs font-medium text-on-surface-variant uppercase tracking-wide mb-3">{label}</h3>
+              <div className="space-y-3">
                 {routines.map((routine) => (
                   <div
                     key={routine.id}
                     onClick={() => navigate(`/train/${routine.id}`)}
-                    className="bg-surface-container-high rounded-xl p-6 cursor-pointer hover:bg-surface-container-highest transition-all"
+                    className={`rounded-xl p-4 cursor-pointer transition-all ${
+                      routine.id === todayRoutine?.id 
+                        ? 'bg-surface-container-high border border-secondary/30' 
+                        : 'bg-surface-container-low hover:bg-surface-container-high'
+                    }`}
                   >
-                    <div className="flex justify-between items-start">
-                      <div>
-                        <h3 className="text-lg font-bold text-on-surface">{routine.title}</h3>
-                        <p className="text-sm text-on-surface-variant mt-1">{routine.subtitle}</p>
+                    <div className="flex justify-between items-center">
+                      <div className="flex items-center gap-3">
+                        {routine.id === todayRoutine?.id && (
+                          <span className="text-[0.65rem] bg-secondary/20 text-secondary px-2 py-0.5 rounded-full">
+                            HOY
+                          </span>
+                        )}
+                        <div>
+                          <h4 className={`font-semibold ${routine.id === todayRoutine?.id ? 'text-secondary' : 'text-on-surface'}`}>
+                            {routine.title}
+                          </h4>
+                          <p className="text-xs text-on-surface-variant">{routine.duration} min • {routine.type}</p>
+                        </div>
                       </div>
-                      <span className="text-secondary font-medium">{routine.duration} min</span>
+                      <Icon name="chevron_right" className="text-on-surface-variant" />
                     </div>
                   </div>
                 ))}
