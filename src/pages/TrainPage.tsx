@@ -86,14 +86,14 @@ export function TrainPage() {
           <div className="flex items-center gap-2 mb-1">
             <span className="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
             <span className="text-secondary text-[0.75rem] uppercase tracking-[0.05em] font-medium font-label">
-              Session Active
+              Sesión Activa
             </span>
           </div>
           <h1 className="text-[1.75rem] font-bold tracking-tight text-on-surface">
             {routine.title}
           </h1>
           <p className="text-on-surface-variant text-base">
-            Boxing & Strength Recovery • Day 14
+            Boxeo y Recuperación de Fuerza • Día 14
           </p>
         </header>
 
@@ -107,7 +107,7 @@ export function TrainPage() {
 
           <div className="relative z-10 flex flex-col items-center">
             <span className="text-tertiary font-label text-[0.75rem] uppercase tracking-[0.2em] mb-4">
-              Round {currentRound} of {totalRounds}
+              Ronda {currentRound} de {totalRounds}
             </span>
             <div className="text-[3.5rem] md:text-[5rem] font-black tracking-tighter leading-none timer-glow mb-2 text-on-surface"
               style={{ textShadow: '0 0 40px rgba(169, 202, 235, 0.3)' }}
@@ -116,7 +116,7 @@ export function TrainPage() {
             </div>
             <div className="flex items-center gap-2 text-secondary mb-10">
               <Icon name="timer" className="text-sm" filled />
-              <span className="text-sm font-medium">Work Phase</span>
+              <span className="text-sm font-medium">Fase de Trabajo</span>
             </div>
 
             {/* Control Buttons */}
@@ -126,7 +126,7 @@ export function TrainPage() {
                 className="flex-1 h-16 bg-surface-container-highest text-on-surface rounded-lg font-bold flex items-center justify-center gap-2 hover:bg-surface-bright transition-all active:scale-95"
               >
                 <Icon name={isPlaying ? 'pause' : 'play_arrow'} />
-                {isPlaying ? 'Pause' : 'Resume'}
+                {isPlaying ? 'Pausa' : 'Continuar'}
               </button>
               <button
                 onClick={() => {
@@ -138,7 +138,7 @@ export function TrainPage() {
                 className="flex-1 h-16 bg-primary text-on-primary rounded-lg font-bold flex items-center justify-center gap-2 hover:bg-primary-fixed-dim transition-all active:scale-95 shadow-[0_8px_32px_rgba(185,200,222,0.2)]"
               >
                 <Icon name="skip_next" />
-                Skip
+                Saltar
               </button>
             </div>
           </div>
@@ -149,9 +149,9 @@ export function TrainPage() {
           {/* Routine Column */}
           <div className="md:col-span-2 space-y-6">
             <div className="flex items-center justify-between">
-              <h3 className="text-xl font-bold">Personalized Routine</h3>
+              <h3 className="text-xl font-bold">Rutina Personalizada</h3>
               <span className="text-sm text-secondary font-medium">
-                {exercises.length - currentExerciseIndex} Exercises Left
+                Faltan {exercises.length - currentExerciseIndex} Ejercicios
               </span>
             </div>
 
@@ -185,19 +185,19 @@ export function TrainPage() {
                 <div className="flex gap-6">
                   <div className="space-y-1">
                     <p className="text-[0.75rem] font-label text-on-surface-variant uppercase tracking-wider">
-                      {index === 0 ? 'Duration' : index === 1 ? 'Reps' : 'Weight'}
+                      {index === 0 ? 'Duración' : index === 1 ? 'Repeticiones' : 'Peso'}
                     </p>
                     <p className="text-base font-bold">
-                      {index === 0 ? '3 x 3:00' : index === 1 ? '15-20 Reps' : '2.5kg / 5lb'}
+                      {index === 0 ? '3 x 3:00' : index === 1 ? '15-20 Rep' : '2.5kg / 5lb'}
                     </p>
                   </div>
                   {index !== 2 && (
                     <div className="space-y-1">
                       <p className="text-[0.75rem] font-label text-on-surface-variant uppercase tracking-wider">
-                        {index === 0 ? 'Intensity' : 'Sets'}
+                        {index === 0 ? 'Intensidad' : 'Series'}
                       </p>
                       <p className="text-base font-bold text-secondary">
-                        {index === 0 ? 'Moderate' : '4 Sets'}
+                        {index === 0 ? 'Moderada' : '4 Series'}
                       </p>
                     </div>
                   )}
@@ -208,36 +208,36 @@ export function TrainPage() {
 
           {/* Mobility Tracker Side */}
           <div className="space-y-6">
-            <h3 className="text-xl font-bold">Outdoor Mobility</h3>
+            <h3 className="text-xl font-bold">Movilidad Exterior</h3>
             <div className="bg-surface-container-high rounded-xl overflow-hidden">
               <div className="h-48 w-full bg-surface-container-highest relative">
                 <img 
-                  alt="Map" 
+                  alt="Mapa" 
                   className="w-full h-full object-cover opacity-60 grayscale brightness-75" 
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuAurF0L_k9u7qIaaBCbIgUQbUnt0ZlPZqnecZUVDFJf7F_Mv7RPJeK31U2qXTcO_SvWWjMt2zjVZTo4Rw_Bq04X8DcDbJSsUSOalxzF4h5fT-jFxEDckwWZJ6vfJuyr0adDmKzOcPPqNehvoK8hV-ybUbVx-cKHvUiYVVqtMT8FjMBq5yvkt6Wf7RdttCZsKfDh93O8wtR0Wewrt_-KUr0glfedURxeSqNhvbJze0AgzAKKrgdLPlB3SO-BVHkYb4OZEobwNwzlI0c" 
                 />
                 <div className="absolute bottom-4 left-4 right-4 flex justify-between items-center">
                   <div className="bg-surface-dim/80 backdrop-blur px-3 py-1.5 rounded-full flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-tertiary"></span>
-                    <span className="text-xs font-bold uppercase tracking-widest text-on-surface">Tracking</span>
+                    <span className="text-xs font-bold uppercase tracking-widest text-on-surface">Rastreo</span>
                   </div>
                 </div>
               </div>
               <div className="p-6 space-y-6">
                 <div className="flex items-center justify-between">
                   <div className="text-center flex-1">
-                    <p className="text-[0.75rem] font-label text-on-surface-variant uppercase tracking-wider mb-1">Distance</p>
+                    <p className="text-[0.75rem] font-label text-on-surface-variant uppercase tracking-wider mb-1">Distancia</p>
                     <p className="text-2xl font-black">1.2 km</p>
                   </div>
                   <div className="w-px h-10 bg-outline-variant/30"></div>
                   <div className="text-center flex-1">
-                    <p className="text-[0.75rem] font-label text-on-surface-variant uppercase tracking-wider mb-1">Pace</p>
+                    <p className="text-[0.75rem] font-label text-on-surface-variant uppercase tracking-wider mb-1">Ritmo</p>
                     <p className="text-2xl font-black">14'22"</p>
                   </div>
                 </div>
                 <div className="space-y-2">
                   <div className="flex justify-between text-xs font-bold">
-                    <span>Daily Target</span>
+                    <span>Objetivo Diario</span>
                     <span>60%</span>
                   </div>
                   <div className="h-3 w-full bg-surface-container rounded-full overflow-hidden">
@@ -246,7 +246,7 @@ export function TrainPage() {
                 </div>
                 <button className="w-full h-14 bg-surface-container-highest border border-outline-variant/20 rounded-lg text-on-surface font-bold flex items-center justify-center gap-2 hover:bg-surface-bright transition-all">
                   <Icon name="explore" />
-                  Resume Excursion
+                  Reanudar Excursión
                 </button>
               </div>
             </div>
@@ -255,10 +255,10 @@ export function TrainPage() {
             <div className="bg-secondary-container p-6 rounded-xl border border-secondary/20">
               <div className="flex items-center gap-3 mb-4">
                 <Icon name="healing" className="text-secondary" />
-                <h4 className="font-bold text-on-secondary-container">Recovery Insight</h4>
+                <h4 className="font-bold text-on-secondary-container">Perspectiva de Recuperación</h4>
               </div>
               <p className="text-sm text-on-secondary-container/90 leading-relaxed italic">
-                "Your cadence during the bag session is 15% more stable today. The quadriceps strain is responding well to the sage-active rest intervals."
+                "Tu cadencia durante la sesión de saco es un 15% más estable hoy. La tensión del cuádriceps está respondiendo bien a los intervalos de descanso activo."
               </p>
             </div>
           </div>
@@ -271,7 +271,7 @@ export function TrainPage() {
             className="pointer-events-auto h-16 w-full max-w-md bg-gradient-to-br from-primary to-primary-container text-on-primary font-bold rounded-lg shadow-lg active:scale-95 transition-all flex items-center justify-center gap-3"
           >
             <Icon name="stop" />
-            FINISH WORKOUT
+            TERMINAR ENTRENAMIENTO
           </button>
         </div>
       </div>

@@ -3,43 +3,43 @@ import { Icon } from '@/components/ui/Icon';
 import { useAppStore } from '@/lib/stores/appStore';
 
 export function ProgressPage() {
-  const { progress, sessions } = useAppStore();
+  const { progress } = useAppStore();
   const [selectedMood, setSelectedMood] = useState<string>('');
 
   // Calculate stats
   const weeklyData = [
-    { day: 'M', height: '40%', isHighlight: false },
-    { day: 'T', height: '60%', isHighlight: false },
-    { day: 'W', height: '55%', isHighlight: false },
-    { day: 'T', height: '85%', isHighlight: true },
-    { day: 'F', height: '70%', isHighlight: false },
+    { day: 'L', height: '40%', isHighlight: false },
+    { day: 'M', height: '60%', isHighlight: false },
+    { day: 'X', height: '55%', isHighlight: false },
+    { day: 'J', height: '85%', isHighlight: true },
+    { day: 'V', height: '70%', isHighlight: false },
     { day: 'S', height: '45%', isHighlight: false },
-    { day: 'S', height: '30%', isHighlight: false },
+    { day: 'D', height: '30%', isHighlight: false },
   ];
 
   const readings = [
     {
       id: 1,
-      category: 'MINDFULNESS',
-      title: 'The Physics of Recovery',
-      description: 'Understanding that healing is not linear, but a series of micro-adjustments within the nervous system.',
-      readTime: '4 min read',
+      category: 'ATENCIÓN PLENA',
+      title: 'La Física de la Recuperación',
+      description: 'Entender que la curación no es lineal, sino una serie de micro-ajustes dentro del sistema nervioso.',
+      readTime: '4 min de lectura',
       image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuD7zGR1WUjnRBKceynaOYjJ6DT8GEfCD0KQQkSmHSv9OPxDt8McogNwV3qyHORtB3YQSL64Wij97yeuRQuBoyR-_EhhTsibvoPAYG01p2jo6dHdU1gS6Wc5lgYPdkGvQx_BMwazUGyX65LhQ4BamLLKes_WlUPDQ4hybjkdITK0K3bErjmmnpKaVOw_ECgB6Jysmr-t938YJJvi3rZUB4CPm4YjlZCmIP8zY7lduYbSar7KvLLw56_NrEtaJcXxNb-VhnzOJDJ1AF0'
     },
     {
       id: 2,
-      category: 'PHYSIOLOGY',
-      title: 'Cellular Resilience',
-      description: 'How targeted rest periods trigger mitochondrial repair in resected muscle tissue.',
-      readTime: '6 min read',
+      category: 'FISIOLOGÍA',
+      title: 'Resiliencia Celular',
+      description: 'Cómo los períodos de descanso dirigidos activan la reparación mitocondrial en el tejido muscular resecado.',
+      readTime: '6 min de lectura',
       image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCl-fILbg5Cz4EEDYkRZLJ-1BGbKVGvYQWtNAtsr1ogc6s8Ejk2B27ecRnbIRaz1XdcQH8HZvamwY-Bs_UlYH7UTsrcvAkjoliivyp2bRl-PDohqpgmfKSwVlSmtj9zV3p3wLCG-573gnOyzPv9yHv9wbQxs1yIrI037r-6R-QcoyD5vcmXVa420Qm1bIqwnCsmdH3c3vg7GgkZEIH769sZQ0xk3GpATWaurq71xC_Cubf1ihz90oPb6CI7Mm63pBTg0rQpLUQyibk'
     },
     {
       id: 3,
-      category: 'PSYCHOLOGY',
-      title: 'The Stoic Athlete',
-      description: 'Embracing the temporary limitations of the physical body to find mental sovereignty.',
-      readTime: '3 min read',
+      category: 'PSICOLOGÍA',
+      title: 'El Atleta Estoico',
+      description: 'Abrazar las limitaciones temporales del cuerpo físico para encontrar la soberanía mental.',
+      readTime: '3 min de lectura',
       image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCYDk6IjaQnwH8NyXGN2b5cEIGmloRAhQy6HvyEkB0kBGFQ_OkMGt3-LPmvs3xFEk0aYFB1c9t3uHWacn2FewWdxgHMxK6bpxbx0nMKoLXHlHRHEjeUcylFX-a94c3Gqezpqbnb89bVD32r8ZePFqOdSNGesV3GFeodO3ifZ4PBnn73sgBXk8Fmh80XIkef3wNULlt5EiQF2lPJQ-tK4sj7_UupH1t1vlLL9PlmmYvSnR3ECSPrOlzVDAQzaPV9ZN-zWbUskFdJ10M'
     },
   ];
@@ -50,13 +50,13 @@ export function ProgressPage() {
       <section className="grid grid-cols-1 md:grid-cols-12 gap-8 items-end">
         <div className="md:col-span-8">
           <p className="text-[0.75rem] font-medium uppercase tracking-[0.05em] text-tertiary mb-2">
-            My Evolution
+            Mi Evolución
           </p>
           <h2 className="text-[3.5rem] leading-tight font-black tracking-tighter text-on-surface">
             Mi Camino
           </h2>
           <p className="text-on-surface-variant mt-4 leading-relaxed max-w-xl">
-            A reflective space for your recovery journey. Track your resilience, celebrate small wins, and find the quiet strength to keep moving forward.
+            Un espacio reflexivo para tu viaje de recuperación. Rastrea tu resiliencia, celebra pequeñas victorias y encuentra la fuerza tranquila para seguir avanzando.
           </p>
         </div>
         <div className="md:col-span-4 flex flex-col items-end gap-2">
@@ -66,7 +66,7 @@ export function ProgressPage() {
             <div className="h-1 w-6 rounded-full bg-surface-container-highest"></div>
           </div>
           <span className="text-[0.75rem] font-medium text-on-surface-variant">
-            Day {progress.currentStreak > 0 ? progress.currentStreak : 42} of Recovery
+            Día {progress.currentStreak > 0 ? progress.currentStreak : 42} de Recuperación
           </span>
         </div>
       </section>
@@ -76,9 +76,9 @@ export function ProgressPage() {
         {/* Sensation Log Action */}
         <div className="md:col-span-2 lg:col-span-2 bg-surface-container-high rounded-xl p-8 flex flex-col justify-between min-h-[320px]">
           <div>
-            <h3 className="text-[1.375rem] font-bold text-on-surface mb-2">Sensation Log</h3>
+            <h3 className="text-[1.375rem] font-bold text-on-surface mb-2">Registro de Sensaciones</h3>
             <p className="text-on-surface-variant">
-              How does your quad feel after today's session?
+              ¿Cómo se siente tu cuádriceps después de la sesión de hoy?
             </p>
           </div>
           <div className="space-y-4">
@@ -101,7 +101,7 @@ export function ProgressPage() {
             </div>
             <button className="w-full h-16 bg-primary text-on-primary font-bold rounded-lg transition-transform active:scale-95 flex items-center justify-center gap-2">
               <Icon name="add" />
-              Log Post-Session Mood
+              Registrar Estado Post-Sesión
             </button>
           </div>
         </div>
@@ -110,12 +110,12 @@ export function ProgressPage() {
         <div className="md:col-span-2 lg:col-span-4 bg-surface-container-low rounded-xl p-8 flex flex-col justify-between">
           <div className="flex justify-between items-start">
             <div>
-              <h3 className="text-[1.375rem] font-bold text-on-surface">Weekly Resilience</h3>
-              <p className="text-[0.75rem] text-tertiary">Pain Levels vs. Mobility</p>
+              <h3 className="text-[1.375rem] font-bold text-on-surface">Resiliencia Semanal</h3>
+              <p className="text-[0.75rem] text-tertiary">Niveles de Dolor vs. Movilidad</p>
             </div>
             <div className="text-right">
               <span className="text-[1.75rem] font-black text-secondary">+14%</span>
-              <p className="text-[0.75rem] text-on-surface-variant">Progress</p>
+              <p className="text-[0.75rem] text-on-surface-variant">Progreso</p>
             </div>
           </div>
 
@@ -140,15 +140,15 @@ export function ProgressPage() {
         {/* Body Composition */}
         <div className="md:col-span-2 lg:col-span-2 bg-surface-container rounded-xl p-8 overflow-hidden relative group">
           <div className="relative z-10">
-            <h3 className="text-[1.375rem] font-bold text-on-surface mb-1">Body Composition</h3>
-            <p className="text-[0.75rem] text-on-surface-variant mb-6">Stabilizing Post-Surgery</p>
+            <h3 className="text-[1.375rem] font-bold text-on-surface mb-1">Composición Corporal</h3>
+            <p className="text-[0.75rem] text-on-surface-variant mb-6">Estabilización Post-Cirugía</p>
             <div className="flex items-baseline gap-2">
               <span className="text-[2.5rem] font-black text-on-surface">78.4</span>
               <span className="text-[1.375rem] font-medium text-on-surface-variant">kg</span>
             </div>
             <div className="mt-4 flex items-center gap-2 text-tertiary">
               <Icon name="trending_down" />
-              <span className="text-[1rem] font-medium">-0.8kg this week</span>
+              <span className="text-[1rem] font-medium">-0.8kg esta semana</span>
             </div>
           </div>
           <div className="absolute -right-12 -bottom-12 w-48 h-48 bg-primary/5 rounded-full blur-3xl group-hover:bg-primary/10 transition-colors"></div>
@@ -160,12 +160,12 @@ export function ProgressPage() {
             <Icon name="auto_awesome" className="text-tertiary" />
           </div>
           <div className="flex-1">
-            <h3 className="text-[1.375rem] font-bold text-on-surface mb-2">Today's Focus</h3>
+            <h3 className="text-[1.375rem] font-bold text-on-surface mb-2">Enfoque de Hoy</h3>
             <p className="italic text-on-surface-variant leading-relaxed">
-              "My quad resection was a point of departure, not an end. Today, I stand taller than I did yesterday."
+              "Mi resección de cuádriceps fue un punto de partida, no un final. Hoy, estoy más fuerte que ayer."
             </p>
             <p className="text-[0.75rem] text-tertiary mt-4 font-bold tracking-widest uppercase">
-              Resilience Score: 92%
+              Puntuación de Resiliencia: 92%
             </p>
           </div>
         </div>
@@ -175,11 +175,11 @@ export function ProgressPage() {
       <section className="space-y-8">
         <div className="flex justify-between items-end">
           <div>
-            <h2 className="text-[1.75rem] font-bold text-on-surface">Recovery Library</h2>
-            <p className="text-on-surface-variant mt-2">Curated readings for the clinical sanctuary.</p>
+            <h2 className="text-[1.75rem] font-bold text-on-surface">Biblioteca de Recuperación</h2>
+            <p className="text-on-surface-variant mt-2">Lecturas seleccionadas para el santuario clínico.</p>
           </div>
           <button className="text-secondary font-bold hover:underline flex items-center gap-2">
-            View All <Icon name="arrow_forward" />
+            Ver Todo <Icon name="arrow_forward" />
           </button>
         </div>
 
