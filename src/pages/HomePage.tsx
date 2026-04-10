@@ -98,10 +98,10 @@ export function HomePage() {
               </span>
             </div>
             <h3 className="text-[1.25rem] md:text-[1.5rem] font-bold text-on-surface">
-              Boxeo y Estabilidad de Cuádriceps
+              Boxeo y Estabilidad de Core
             </h3>
             <p className="text-on-surface-variant max-w-md text-sm line-clamp-2">
-              Sesión de rehabilitación enfocada en boxeo shadow y ejercicios isométricos para restaurar la fuerza del cuádriceps.
+              Sesión enfocada en técnica de boxeo shadow y ejercicios de estabilidad. Diseñada para proteger la pierna izquierda mientras entrenas.
             </p>
             <button 
               onClick={(e) => { e.stopPropagation(); navigate('/train'); }}
@@ -163,9 +163,9 @@ export function HomePage() {
           <div className="flex-1 space-y-4 w-full">
             <div className="flex justify-between items-start">
               <div className="space-y-1">
-                <h4 className="text-lg font-bold">Hito: Fase de Recuperación 2</h4>
+                <h4 className="text-lg font-bold">Hito: Fase de Entrenamiento 2</h4>
                 <p className="text-on-surface-variant text-sm">
-                  Te faltan 3 sesiones para aumentar la carga del cuádriceps un 5%.
+                  Te faltan 3 sesiones para aumentar la intensidad de tu rutina.
                 </p>
               </div>
               <Icon name="auto_graph" className="text-secondary text-xl" />

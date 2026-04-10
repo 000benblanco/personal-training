@@ -89,7 +89,6 @@ Configura esto para que la app funcione 100%:
    - Abre el icono de la app (incluso sin datos/wifi)
    - Funciona 100%: timer, rutinas, registro de sesiones
    - Tus datos se guardan localmente
-   - La próxima vez con internet se sincroniza (si hubiera servidor, pero es local)
 
 ⚠️ NOTA: Vanadium puede borrar datos si:
    - Limpias caché manualmente

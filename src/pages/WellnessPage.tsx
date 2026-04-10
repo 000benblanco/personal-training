@@ -25,8 +25,8 @@ export function WellnessPage() {
     },
     {
       id: 3,
-      title: 'Manejo del Dolor Agudo',
-      subtitle: 'Sonidos binaurales y voz',
+      title: 'Relajación Profunda',
+      subtitle: 'Sonidos binaurales y guía vocal',
       duration: '15 MIN',
       icon: 'headphones',
       image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAjNihCKTVYCa9UEA24pm_lLC32k5v3OpD-Kkl3vSWPeRRBMlUIf_t0Qv8ZNAyt6n8Vxpj-GYnLAQ22YIF1Ai8CM1-eNmLDxST69RheLz5nSUWRE72M3ArCfwSYD3Yk1vjTwGiL7IiyL2jN17xbFpCl4A8MKUewdjYoHQBTvYJkmQqlUGzvnK7bNwu1RBy2cDsVUMwuVNPSJpSvG_I2E9iTE-48lxOnI8Xb57ZRDpTqmVkEghaYOV4rQxBuUNBV69Fl7SlTEcQOsCI'
@@ -113,7 +113,7 @@ export function WellnessPage() {
               Escaneo Corporal Guiado
             </h3>
             <p className="text-on-surface-variant max-w-sm mb-8">
-              Libera la tensión acumulada en el cuádriceps y extremidades mediante una atención focalizada.
+              Libera la tensión acumulada en el cuerpo mediante una atención focalizada.
             </p>
           </div>
           <div className="flex items-center gap-6 mt-4">
@@ -134,7 +134,7 @@ export function WellnessPage() {
             <Icon name="psychology" className="text-4xl mb-4" />
             <h3 className="text-xl font-bold mb-2">Grounding 5-4-3-2-1</h3>
             <p className="text-on-tertiary-container text-sm">
-              Técnica rápida para momentos de ansiedad o dolor agudo.
+              Técnica rápida para momentos de ansiedad o estrés.
             </p>
           </div>
           <button className="mt-8 py-4 bg-tertiary text-on-tertiary rounded-lg font-bold active:scale-95 transition-transform">
@@ -149,7 +149,7 @@ export function WellnessPage() {
           <div>
             <h3 className="text-[1.375rem] font-bold text-on-surface">Biblioteca de Meditación</h3>
             <p className="text-on-surface-variant text-sm mt-1">
-              Sesiones diseñadas para el manejo del dolor crónico.
+              Sesiones diseñadas para tu bienestar mental y físico.
             </p>
           </div>
           <button className="text-secondary font-bold text-sm hover:underline">Ver todo</button>

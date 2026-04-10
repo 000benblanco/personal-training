@@ -6,9 +6,8 @@
 📱 ¿QUÉ ES ESTA APLICACIÓN?
 =======================================================
 
-Es una PWA (Progressive Web App) diseñada específicamente para 
-rehabilitación tras resección de cuádriceps (70% resecado, uso de 
-férula, sin poder arrodillarse, correr ni saltar).
+Es una PWA (Progressive Web App) diseñada para entrenamiento
+personalizado con énfasis en protección de la pierna izquierda.
 
 ✓ Funciona 100% offline después de la primera carga
 ✓ Guarda tu progreso localmente (localStorage)
@@ -23,7 +22,7 @@ férula, sin poder arrodillarse, correr ni saltar).
 🏠 INICIO (Mi Ritual)
 ---------------------
 • Selector de estado de ánimo (4 opciones)
-• Tarjeta de entrenamiento del día (adaptada a tu semana)
+• Tarjeta de entrenamiento del día (adaptada a tu nivel)
 • Acceso rápido a respiración/calma
 • Gráfico de progreso semanal
 • Anillo de progreso hacia tu meta
@@ -32,9 +31,9 @@ férula, sin poder arrodillarse, correr ni saltar).
 ---------------------
 • Timer con rondas (ej: 3 rondas de 3 minutos)
 • Botones: Pausa / Saltar / Terminar
-• Lista de ejercicios adaptados a tu rodilla
-• Tracker de movilidad exterior (simulado)
-• Consejos de recuperación post-sesión
+• Lista de ejercicios adaptados (protegen la pierna izquierda)
+• Tracker de actividad
+• Consejos post-sesión
 
 🧘 CALMA (Wellness)
 -------------------
@@ -47,7 +46,7 @@ férula, sin poder arrodillarse, correr ni saltar).
 📊 MI CAMINO (Progress)
 -----------------------
 • Registro de sensaciones post-sesión
-• Gráfico de resiliencia semanal
+• Gráfico de progreso semanal
 • Composición corporal (peso)
 • Frase motivacional del día
 • Biblioteca de lecturas (fisiología, psicología)
@@ -82,8 +81,8 @@ La app tiene 3 sistemas que evolucionan:
 • Semanas 9-12: Entrenamiento completo adaptado
 
 CÓMO SE CALCULA TU SEMANA:
-• La app cuenta desde tu fecha de cirugía
-• O manualmente en ajustes (si lo configuraste)
+• La app cuenta desde tu fecha de inicio
+• O manualmente en ajustes
 • Ejemplo: Si estás en semana 5 → ves rutinas de semanas 5-6
 
 
@@ -93,14 +92,14 @@ CÓMO SE CALCULA TU SEMANA:
 
 🔴 IMÁGENES ESTÁTICAS (No cambian)
 ----------------------------------
-Las imágenes que ves son URLs fijas de Google AI (Imagen 3):
+Las imágenes que ves son URLs fijas de Google AI:
 • Fondo de boxeo en tarjeta de entreno
 • Fondo de meditación en tarjeta de calma
 • Fotos de perfil (avatars genéricos)
 • Imágenes de la biblioteca de lecturas
 
-Estas imágenes son decorativas y NO cambian dinámicamente.
-Son parte del diseño "Clinical Sanctuary".
+Son decorativas y NO cambian dinámicamente.
+Son parte del diseño visual de la app.
 
 🟢 LO QUE SÍ CAMBIA VISUALMENTE:
 --------------------------------
@@ -108,7 +107,7 @@ Son parte del diseño "Clinical Sanctuary".
 • Color de los días activos (gris → verde)
 • Porcentaje del anillo de progreso
 • Número de racha y nivel
-• Textos de rutinas (según tu fase de recuperación)
+• Textos de rutinas (según tu fase de entrenamiento)
 
 
 =======================================================
@@ -130,13 +129,13 @@ ENTRENO (30-45 min):
 
 POST-ENTRENO (3 min):
 1. Ir a "Mi Camino"
-2. Registrar sensación del cuádriceps (emoji)
+2. Registrar sensación post-sesión (emoji)
 3. Ver progreso semanal actualizado
 4. Leer frase motivacional del día
 
 NOCHE (opcional):
 • Escaneo corporal de 12 min para relajación
-• Grounding si hay dolor/ansiedad
+• Grounding si hay ansiedad o estrés
 
 
 =======================================================
@@ -164,7 +163,7 @@ perderás tu progreso. No hay backup en la nube.
 
 ❓ ¿Puedo cambiar la rutina manualmente?
 → Sí, en "Entreno" puedes elegir entre todas las rutinas
-   disponibles para tu fase de recuperación.
+   disponibles para tu fase de entrenamiento.
 
 ❓ ¿Qué pasa si hago 2 sesiones en un día?
 → ¡Perfecto! Suma doble XP y cuenta para tu racha.
@@ -193,7 +192,7 @@ perderás tu progreso. No hay backup en la nube.
    notificarte de tu sesión diaria.
 
 💡 Sé honesto con el registro de sensaciones:
-   Ayuda a ver patrones (¿peor después de qué ejercicios?)
+   Ayuda a ver patrones (¿mejor después de qué ejercicios?)
 
 
 =======================================================

@@ -93,7 +93,7 @@ export function TrainPage() {
             {routine.title}
           </h1>
           <p className="text-on-surface-variant text-base">
-            Boxeo y Recuperación de Fuerza • Día 14
+            Boxeo y Entrenamiento de Fuerza • Sesión de hoy
           </p>
         </header>
 
@@ -251,20 +251,20 @@ export function TrainPage() {
               </div>
             </div>
 
-            {/* Recovery Insight */}
+            {/* Training Insight */}
             <div className="bg-secondary-container p-6 rounded-xl border border-secondary/20">
               <div className="flex items-center gap-3 mb-4">
                 <Icon name="healing" className="text-secondary" />
-                <h4 className="font-bold text-on-secondary-container">Perspectiva de Recuperación</h4>
+                <h4 className="font-bold text-on-secondary-container">Perspectiva de Entrenamiento</h4>
               </div>
               <p className="text-sm text-on-secondary-container/90 leading-relaxed italic">
-                "Tu cadencia durante la sesión de saco es un 15% más estable hoy. La tensión del cuádriceps está respondiendo bien a los intervalos de descanso activo."
+                "Tu cadencia durante la sesión de saco es un 15% más estable hoy. Tu técnica está respondiendo bien a los intervalos de descanso activo."
               </p>
             </div>
           </div>
         </div>
 
-        {/* Quad-Focus Footer */}
+        {/* Training Footer */}
         <div className="fixed bottom-32 left-0 w-full px-6 flex justify-center pointer-events-none">
           <button
             onClick={finishSession}
@@ -309,7 +309,7 @@ function RoutinesList() {
     <div className="space-y-8 animate-fade-in">
       <div>
         <h1 className="text-2xl font-bold text-on-surface tracking-tight">Entrenamiento</h1>
-        <p className="text-on-surface-variant mt-1">Selecciona tu rutina adaptada</p>
+        <p className="text-on-surface-variant mt-1">Selecciona tu rutina personalizada</p>
       </div>
 
       <div className="space-y-8">

@@ -71,5 +71,5 @@ https://000benblanco.github.io/personal-training/
 Guía completa: INSTALAR EN VANADIUM.txt
 
 ╔═══════════════════════════════════════════════════════╗
-║  Personal Training - Tu compañero de recuperación      ║
+║  Personal Training - Tu compañero de entrenamiento   ║
 ╚═══════════════════════════════════════════════════════╝

@@ -29,7 +29,7 @@
 
 📲 CÓMO INSTALAR EN MÓVIL:
    ------------------------
-   1. Abre la URL en Chrome/Safari
+   1. Abre la URL en Chrome/Safari/Vanadium
    2. Menú → "Agregar a pantalla de inicio"
    3. La app se instala como aplicación nativa
 
@@ -38,9 +38,12 @@
 =======================================================
 
 📄 INSTRUCCIONES.txt      - Este archivo (guía completa)
+📄 COMO FUNCIONA.txt    - Explicación detallada de la app
+📄 GUÍA RÁPIDA MÓVIL.txt - Tarjeta de referencia para móvil
+📄 INSTALAR EN VANADIUM.txt - Guía específica para Vanadium
 🚀 Abrir App.bat          - Abre la app en Chrome (doble click)
 🚀 Abrir App.ps1          - Abre la app en Edge (doble click)
-📱 manifest.webmanifest   - Configuración PWA
+🖱️ Crear Acceso Directo.bat - Crea icono en el escritorio
 
 =======================================================
    NOTAS IMPORTANTES
@@ -48,7 +51,7 @@
 
 ✓ No necesitas instalar nada en el PC
 ✓ Funciona offline después de la primera carga
-✓ Los datos se guardan localmente en el navegador
+✓ Guarda tu progreso automáticamente
 ✓ Compatible con Windows, Mac, Linux, Android, iOS
 
 ✗ NO es un archivo .exe tradicional
@@ -71,6 +74,5 @@ Para modificar la app:
 =======================================================
 
 GitHub: https://github.com/000benblanco/personal-training
-Email: [tu-email]
 
 =======================================================
