@@ -12,21 +12,26 @@ function getCurrentWeek(): number {
   return 1;
 }
 
-// Obtener rutina recomendada según semana
+// Obtener rutina MIXTA recomendada según semana (combina boxeo + respiración + yoga)
 function getTodayRoutine() {
   const week = getCurrentWeek();
   const weekRanges: Record<string, number> = {
     '1-2': 1, '3-4': 3, '5-6': 5, '7-8': 7, '9-12': 9
   };
   
-  // Buscar primera rutina de la semana actual
+  // Buscar rutina mixta de la semana actual
   const targetWeekRange = Object.keys(weekRanges).find(range => {
     const start = weekRanges[range];
     const end = range === '9-12' ? 12 : start + 1;
     return week >= start && week <= end;
   }) || '1-2';
   
-  return routines.find(r => r.weekRange === targetWeekRange) || routines[0];
+  // Buscar rutina mixta específica, o fallback a la primera disponible
+  const mixtoId = `week-${targetWeekRange}-mixto`;
+  return routines.find(r => r.id === mixtoId) || 
+         routines.find(r => r.weekRange === targetWeekRange && r.type === 'mixto') ||
+         routines.find(r => r.weekRange === targetWeekRange) || 
+         routines[0];
 }
 
 export function HomePage() {

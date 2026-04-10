@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import type { Session, UserProgress, UserSettings, Badge } from '@/types';
+import type { Session, UserProgress, UserSettings, Badge, WeightEntry } from '@/types';
 import { generateId } from '@/lib/utils';
 
 interface AppState {
@@ -22,6 +22,13 @@ interface AppState {
   
   // XP and level
   addXP: (amount: number) => void;
+  
+  // Weight tracking
+  weightEntries: WeightEntry[];
+  addWeightEntry: (weight: number, notes?: string) => void;
+  deleteWeightEntry: (id: string) => void;
+  getLatestWeight: () => number | undefined;
+  getWeightChange: () => number | undefined;
 }
 
 const BADGES: Badge[] = [
@@ -62,6 +69,8 @@ const INITIAL_SETTINGS: UserSettings = {
   reminderEnabled: false,
   reminderTime: '09:00',
   hasSeenDisclaimer: false,
+  initialWeight: undefined,
+  weightReminderDay: 'D', // Domingo por defecto
 };
 
 export const useAppStore = create<AppState>()(
@@ -71,11 +80,44 @@ export const useAppStore = create<AppState>()(
       sessions: [],
       progress: INITIAL_PROGRESS,
       userName: '',
+      weightEntries: [],
       
       updateSettings: (newSettings) => {
         set((state) => ({
           settings: { ...state.settings, ...newSettings },
         }));
+      },
+      
+      addWeightEntry: (weight, notes) => {
+        const entry: WeightEntry = {
+          id: generateId(),
+          date: new Date().toISOString(),
+          weight,
+          notes,
+        };
+        set((state) => ({
+          weightEntries: [...state.weightEntries, entry],
+        }));
+      },
+      
+      deleteWeightEntry: (id) => {
+        set((state) => ({
+          weightEntries: state.weightEntries.filter((e) => e.id !== id),
+        }));
+      },
+      
+      getLatestWeight: () => {
+        const entries = get().weightEntries;
+        if (entries.length === 0) return get().settings.initialWeight;
+        return entries[entries.length - 1]?.weight;
+      },
+      
+      getWeightChange: () => {
+        const entries = get().weightEntries;
+        const initial = get().settings.initialWeight;
+        if (entries.length === 0 || !initial) return undefined;
+        const latest = entries[entries.length - 1].weight;
+        return latest - initial;
       },
       
       setUserName: (name) => {

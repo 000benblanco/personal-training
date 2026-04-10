@@ -3,8 +3,50 @@ import { Icon } from '@/components/ui/Icon';
 import { useAppStore } from '@/lib/stores/appStore';
 
 export function ProgressPage() {
-  const { progress } = useAppStore();
+  const { progress, weightEntries, settings, updateSettings, addWeightEntry, deleteWeightEntry, getLatestWeight, getWeightChange } = useAppStore();
   const [selectedMood, setSelectedMood] = useState<string>('');
+  
+  // Weight tracking state
+  const [showWeightForm, setShowWeightForm] = useState(false);
+  const [showInitialWeightForm, setShowInitialWeightForm] = useState(false);
+  const [newWeight, setNewWeight] = useState('');
+  const [weightNotes, setWeightNotes] = useState('');
+  const [initialWeightInput, setInitialWeightInput] = useState('');
+  
+  const latestWeight = getLatestWeight();
+  const weightChange = getWeightChange();
+  
+  const handleAddWeight = () => {
+    const weight = parseFloat(newWeight);
+    if (!isNaN(weight) && weight > 0) {
+      addWeightEntry(weight, weightNotes || undefined);
+      setNewWeight('');
+      setWeightNotes('');
+      setShowWeightForm(false);
+    }
+  };
+  
+  const handleSetInitialWeight = () => {
+    const weight = parseFloat(initialWeightInput);
+    if (!isNaN(weight) && weight > 0) {
+      updateSettings({ initialWeight: weight });
+      setInitialWeightInput('');
+      setShowInitialWeightForm(false);
+    }
+  };
+  
+  const formatDate = (dateStr: string) => {
+    const date = new Date(dateStr);
+    return date.toLocaleDateString('es-ES', { day: 'numeric', month: 'short' });
+  };
+  
+  const getDayName = (dayCode: string) => {
+    const days: Record<string, string> = {
+      'L': 'Lunes', 'M': 'Martes', 'X': 'Miércoles', 'J': 'Jueves',
+      'V': 'Viernes', 'S': 'Sábado', 'D': 'Domingo'
+    };
+    return days[dayCode] || dayCode;
+  };
 
   // Calculate stats
   const weeklyData = [
@@ -137,19 +179,140 @@ export function ProgressPage() {
           </div>
         </div>
 
-        {/* Body Composition */}
-        <div className="md:col-span-2 lg:col-span-2 bg-surface-container rounded-xl p-8 overflow-hidden relative group">
+        {/* Body Composition - Real Weight Tracking */}
+        <div className="md:col-span-2 lg:col-span-2 bg-surface-container rounded-xl p-6 overflow-hidden relative group">
           <div className="relative z-10">
-            <h3 className="text-[1.375rem] font-bold text-on-surface mb-1">Composición Corporal</h3>
-            <p className="text-[0.75rem] text-on-surface-variant mb-6">Seguimiento de Progreso</p>
-            <div className="flex items-baseline gap-2">
-              <span className="text-[2.5rem] font-black text-on-surface">78.4</span>
-              <span className="text-[1.375rem] font-medium text-on-surface-variant">kg</span>
+            <div className="flex items-center justify-between mb-2">
+              <h3 className="text-[1.125rem] font-bold text-on-surface">Composición Corporal</h3>
+              {!settings.initialWeight && (
+                <button 
+                  onClick={() => setShowInitialWeightForm(true)}
+                  className="text-[0.65rem] text-secondary hover:text-secondary/80 font-medium"
+                >
+                  Fijar inicial
+                </button>
+              )}
             </div>
-            <div className="mt-4 flex items-center gap-2 text-tertiary">
-              <Icon name="trending_down" />
-              <span className="text-[1rem] font-medium">-0.8kg esta semana</span>
+            
+            {/* Initial Weight Form */}
+            {showInitialWeightForm && (
+              <div className="mb-4 p-3 bg-surface-container-high rounded-lg">
+                <p className="text-[0.75rem] text-on-surface-variant mb-2">Peso inicial (kg)</p>
+                <div className="flex gap-2">
+                  <input
+                    type="number"
+                    step="0.1"
+                    value={initialWeightInput}
+                    onChange={(e) => setInitialWeightInput(e.target.value)}
+                    placeholder="Ej: 80.5"
+                    className="flex-1 h-10 px-3 bg-surface-container-low rounded-lg text-on-surface text-sm border border-outline-variant/30 focus:border-secondary outline-none"
+                  />
+                  <button
+                    onClick={handleSetInitialWeight}
+                    className="h-10 px-3 bg-secondary text-on-secondary rounded-lg text-sm font-medium"
+                  >
+                    Guardar
+                  </button>
+                </div>
+              </div>
+            )}
+            
+            {/* Current Weight Display */}
+            <div className="flex items-baseline gap-2 mb-2">
+              <span className="text-[2rem] font-black text-on-surface">
+                {latestWeight ? latestWeight.toFixed(1) : '--'}
+              </span>
+              <span className="text-[1rem] font-medium text-on-surface-variant">kg</span>
             </div>
+            
+            {/* Weight Change Indicator */}
+            {weightChange !== undefined && (
+              <div className={`flex items-center gap-2 ${weightChange <= 0 ? 'text-tertiary' : 'text-error'}`}>
+                <Icon name={weightChange <= 0 ? 'trending_down' : 'trending_up'} />
+                <span className="text-[0.875rem] font-medium">
+                  {weightChange > 0 ? '+' : ''}{weightChange.toFixed(1)}kg desde inicio
+                </span>
+              </div>
+            )}
+            
+            {/* Next Weigh-in Reminder */}
+            {settings.weightReminderDay && (
+              <div className="mt-3 flex items-center gap-2 text-on-surface-variant/70">
+                <Icon name="event" className="text-[0.875rem]" />
+                <span className="text-[0.75rem]">
+                  Próximo: {getDayName(settings.weightReminderDay)}
+                </span>
+              </div>
+            )}
+            
+            {/* Add Weight Button */}
+            <button
+              onClick={() => setShowWeightForm(true)}
+              className="mt-4 w-full h-11 bg-surface-container-high hover:bg-surface-container-highest border border-outline-variant/20 rounded-lg text-on-surface font-medium flex items-center justify-center gap-2 transition-all text-sm"
+            >
+              <Icon name="add" />
+              Registrar peso
+            </button>
+            
+            {/* Weight Entry Form */}
+            {showWeightForm && (
+              <div className="mt-4 p-4 bg-surface-container-high rounded-lg space-y-3">
+                <p className="text-[0.75rem] text-on-surface-variant">Nuevo registro (kg)</p>
+                <input
+                  type="number"
+                  step="0.1"
+                  value={newWeight}
+                  onChange={(e) => setNewWeight(e.target.value)}
+                  placeholder="Ej: 79.2"
+                  className="w-full h-11 px-3 bg-surface-container-low rounded-lg text-on-surface border border-outline-variant/30 focus:border-secondary outline-none"
+                />
+                <input
+                  type="text"
+                  value={weightNotes}
+                  onChange={(e) => setWeightNotes(e.target.value)}
+                  placeholder="Notas (opcional)"
+                  className="w-full h-10 px-3 bg-surface-container-low rounded-lg text-on-surface text-sm border border-outline-variant/30 focus:border-secondary outline-none"
+                />
+                <div className="flex gap-2">
+                  <button
+                    onClick={() => setShowWeightForm(false)}
+                    className="flex-1 h-10 bg-surface-container-low text-on-surface-variant rounded-lg text-sm font-medium"
+                  >
+                    Cancelar
+                  </button>
+                  <button
+                    onClick={handleAddWeight}
+                    disabled={!newWeight || parseFloat(newWeight) <= 0}
+                    className="flex-1 h-10 bg-secondary text-on-secondary rounded-lg text-sm font-medium disabled:opacity-50"
+                  >
+                    Guardar
+                  </button>
+                </div>
+              </div>
+            )}
+            
+            {/* Recent History */}
+            {weightEntries.length > 0 && (
+              <div className="mt-4 pt-4 border-t border-outline-variant/20">
+                <p className="text-[0.65rem] uppercase tracking-wider text-on-surface-variant mb-2">Historial reciente</p>
+                <div className="space-y-2 max-h-24 overflow-y-auto">
+                  {weightEntries.slice(-3).reverse().map((entry) => (
+                    <div key={entry.id} className="flex items-center justify-between text-sm">
+                      <div className="flex items-center gap-2">
+                        <span className="font-medium text-on-surface">{entry.weight.toFixed(1)} kg</span>
+                        <span className="text-[0.65rem] text-on-surface-variant">{formatDate(entry.date)}</span>
+                      </div>
+                      <button
+                        onClick={() => deleteWeightEntry(entry.id)}
+                        className="text-on-surface-variant/50 hover:text-error transition-colors"
+                      >
+                        <Icon name="delete" className="text-[0.875rem]" />
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
           <div className="absolute -right-12 -bottom-12 w-48 h-48 bg-primary/5 rounded-full blur-3xl group-hover:bg-primary/10 transition-colors"></div>
         </div>
@@ -171,50 +334,7 @@ export function ProgressPage() {
         </div>
       </section>
 
-      {/* Library Section */}
-      <section className="space-y-8">
-        <div className="flex justify-between items-end">
-          <div>
-            <h2 className="text-[1.75rem] font-bold text-on-surface">Biblioteca de Bienestar</h2>
-            <p className="text-on-surface-variant mt-2">Lecturas seleccionadas para tu viaje personal.</p>
-          </div>
-          <button className="text-secondary font-bold hover:underline flex items-center gap-2">
-            Ver Todo <Icon name="arrow_forward" />
-          </button>
-        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {readings.map((reading) => (
-            <article
-              key={reading.id}
-              className="flex flex-col bg-surface-container-low rounded-xl overflow-hidden hover:bg-surface-container-high transition-colors group"
-            >
-              <div className="h-48 overflow-hidden">
-                <img
-                  alt={reading.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  src={reading.image}
-                />
-              </div>
-              <div className="p-6 space-y-3">
-                <span className="text-[0.75rem] text-tertiary font-bold tracking-widest uppercase">
-                  {reading.category}
-                </span>
-                <h4 className="text-[1.375rem] font-bold text-on-surface group-hover:text-primary transition-colors">
-                  {reading.title}
-                </h4>
-                <p className="text-on-surface-variant line-clamp-2">
-                  {reading.description}
-                </p>
-                <div className="pt-4 flex items-center gap-2 text-on-surface-variant">
-                  <Icon name="schedule" className="text-sm" />
-                  <span className="text-[0.75rem]">{reading.readTime}</span>
-                </div>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
     </div>
   );
 }

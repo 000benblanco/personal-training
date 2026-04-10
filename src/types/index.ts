@@ -115,6 +115,16 @@ export interface UserSettings {
   reminderEnabled: boolean;
   reminderTime?: string;
   hasSeenDisclaimer: boolean;
+  initialWeight?: number; // Peso inicial en kg
+  weightReminderDay?: string; // Día de la semana para pesarse (L, M, X, J, V, S, D)
+}
+
+// Entrada de peso
+export interface WeightEntry {
+  id: string;
+  date: string; // ISO string
+  weight: number; // en kg
+  notes?: string;
 }
 
 // Props de componentes

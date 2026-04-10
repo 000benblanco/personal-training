@@ -15,7 +15,7 @@ export function AppShell() {
       <header className="lg:hidden fixed top-0 left-0 right-0 z-40 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/10">
         <div className="flex justify-between items-center w-full px-6 py-4 max-w-screen-xl mx-auto">
           <div className="flex items-center gap-4">
-            <Icon name="self_care" className="text-blue-400 text-xl" />
+            <Icon name="self_improvement" className="text-secondary text-xl" />
             <h1 className="text-xl font-bold tracking-wider text-slate-100">Sanctuary</h1>
           </div>
 

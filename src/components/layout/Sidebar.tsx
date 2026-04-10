@@ -18,10 +18,12 @@ export function Sidebar() {
       {/* Logo */}
       <div className="px-8 py-8">
         <div className="flex items-center gap-4 mb-8">
-          <div className="w-12 h-12 rounded-full bg-secondary-container"></div>
+          <div className="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center">
+            <Icon name="self_improvement" className="text-secondary text-2xl" />
+          </div>
           <div>
-            <h4 className="font-bold text-blue-300">Sanctuary</h4>
-            <p className="text-xs text-slate-400">Recovery Companion</p>
+            <h4 className="font-bold text-secondary">Sanctuary</h4>
+            <p className="text-xs text-on-surface-variant">Tu espacio de calma</p>
           </div>
         </div>
       </div>

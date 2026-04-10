@@ -211,48 +211,74 @@ export function TrainPage() {
             ))}
           </div>
 
-          {/* Mobility Tracker Side */}
+          {/* Session Progress & Insights Side */}
           <div className="space-y-6">
-            <h3 className="text-xl font-bold">Movilidad Exterior</h3>
-            <div className="bg-surface-container-high rounded-xl overflow-hidden">
-              <div className="h-48 w-full bg-surface-container-highest relative">
-                <img 
-                  alt="Mapa" 
-                  className="w-full h-full object-cover opacity-60 grayscale brightness-75" 
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAurF0L_k9u7qIaaBCbIgUQbUnt0ZlPZqnecZUVDFJf7F_Mv7RPJeK31U2qXTcO_SvWWjMt2zjVZTo4Rw_Bq04X8DcDbJSsUSOalxzF4h5fT-jFxEDckwWZJ6vfJuyr0adDmKzOcPPqNehvoK8hV-ybUbVx-cKHvUiYVVqtMT8FjMBq5yvkt6Wf7RdttCZsKfDh93O8wtR0Wewrt_-KUr0glfedURxeSqNhvbJze0AgzAKKrgdLPlB3SO-BVHkYb4OZEobwNwzlI0c" 
-                />
-                <div className="absolute bottom-4 left-4 right-4 flex justify-between items-center">
-                  <div className="bg-surface-dim/80 backdrop-blur px-3 py-1.5 rounded-full flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-tertiary"></span>
-                    <span className="text-xs font-bold uppercase tracking-widest text-on-surface">Rastreo</span>
-                  </div>
+            <h3 className="text-xl font-bold">Progreso de la Sesión</h3>
+            
+            {/* Session Stats */}
+            <div className="bg-surface-container-high rounded-xl p-6 space-y-4">
+              <div className="flex items-center justify-between">
+                <div className="text-center flex-1">
+                  <p className="text-[0.75rem] font-label text-on-surface-variant uppercase tracking-wider mb-1">Ronda</p>
+                  <p className="text-2xl font-black text-secondary">{currentRound}/{totalRounds}</p>
+                </div>
+                <div className="w-px h-10 bg-outline-variant/30"></div>
+                <div className="text-center flex-1">
+                  <p className="text-[0.75rem] font-label text-on-surface-variant uppercase tracking-wider mb-1">Tiempo</p>
+                  <p className="text-2xl font-black text-on-surface">{formatTime(timeRemaining)}</p>
                 </div>
               </div>
-              <div className="p-6 space-y-6">
-                <div className="flex items-center justify-between">
-                  <div className="text-center flex-1">
-                    <p className="text-[0.75rem] font-label text-on-surface-variant uppercase tracking-wider mb-1">Distancia</p>
-                    <p className="text-2xl font-black">1.2 km</p>
-                  </div>
-                  <div className="w-px h-10 bg-outline-variant/30"></div>
-                  <div className="text-center flex-1">
-                    <p className="text-[0.75rem] font-label text-on-surface-variant uppercase tracking-wider mb-1">Ritmo</p>
-                    <p className="text-2xl font-black">14'22"</p>
-                  </div>
+              
+              {/* Progress Bar */}
+              <div className="space-y-2">
+                <div className="flex justify-between text-xs font-bold">
+                  <span>Progreso de sesión</span>
+                  <span className="text-secondary">{Math.round((currentRound / totalRounds) * 100)}%</span>
                 </div>
+                <div className="h-3 w-full bg-surface-container rounded-full overflow-hidden">
+                  <div 
+                    className="h-full bg-secondary rounded-full transition-all duration-500"
+                    style={{ width: `${(currentRound / totalRounds) * 100}%` }}
+                  ></div>
+                </div>
+              </div>
+              
+              {/* Exercise Checklist */}
+              <div className="pt-4 border-t border-outline-variant/20">
+                <p className="text-[0.75rem] uppercase tracking-wider text-on-surface-variant mb-3">Ejercicios</p>
                 <div className="space-y-2">
-                  <div className="flex justify-between text-xs font-bold">
-                    <span>Objetivo Diario</span>
-                    <span>60%</span>
-                  </div>
-                  <div className="h-3 w-full bg-surface-container rounded-full overflow-hidden">
-                    <div className="h-full bg-tertiary rounded-full w-[60%]"></div>
-                  </div>
+                  {exercises.slice(0, 4).map((ex, idx) => (
+                    <div 
+                      key={ex?.id || idx}
+                      className={`flex items-center gap-3 p-2 rounded-lg transition-colors ${
+                        idx < currentExerciseIndex 
+                          ? 'bg-tertiary/10' 
+                          : idx === currentExerciseIndex 
+                            ? 'bg-secondary/10 border border-secondary/20' 
+                            : 'bg-surface-container-low'
+                      }`}
+                    >
+                      <div className={`w-5 h-5 rounded-full flex items-center justify-center ${
+                        idx < currentExerciseIndex 
+                          ? 'bg-tertiary text-on-tertiary' 
+                          : idx === currentExerciseIndex 
+                            ? 'bg-secondary text-on-secondary' 
+                            : 'bg-surface-container-highest'
+                      }`}>
+                        {idx < currentExerciseIndex ? (
+                          <Icon name="check" className="text-xs" />
+                        ) : (
+                          <span className="text-[0.65rem] text-on-surface-variant">{idx + 1}</span>
+                        )}
+                      </div>
+                      <span className={`text-sm ${
+                        idx === currentExerciseIndex ? 'font-medium text-on-surface' : 'text-on-surface-variant'
+                      }`}>
+                        {ex?.name || 'Ejercicio'}
+                      </span>
+                    </div>
+                  ))}
                 </div>
-                <button className="w-full h-14 bg-surface-container-highest border border-outline-variant/20 rounded-lg text-on-surface font-bold flex items-center justify-center gap-2 hover:bg-surface-bright transition-all">
-                  <Icon name="explore" />
-                  Reanudar Excursión
-                </button>
               </div>
             </div>
 
@@ -260,10 +286,10 @@ export function TrainPage() {
             <div className="bg-secondary-container p-6 rounded-xl border border-secondary/20">
               <div className="flex items-center gap-3 mb-4">
                 <Icon name="healing" className="text-secondary" />
-                <h4 className="font-bold text-on-secondary-container">Perspectiva de Entrenamiento</h4>
+                <h4 className="font-bold text-on-secondary-container">Consejo del Día</h4>
               </div>
               <p className="text-sm text-on-secondary-container/90 leading-relaxed italic">
-                "Tu cadencia durante la sesión de saco es un 15% más estable hoy. Tu técnica está respondiendo bien a los intervalos de descanso activo."
+                "Respira con el diafragma durante los descansos. Inhala 4 segundos, exhala 6. Esto activa tu nervio vago y acelera la recuperación."
               </p>
             </div>
           </div>
@@ -290,7 +316,7 @@ export function TrainPage() {
   return <RoutinesList />;
 }
 
-// Obtener rutina recomendada según semana
+// Obtener rutina MIXTA recomendada según semana (combina boxeo + respiración + yoga)
 function getTodayRoutine() {
   const week = getCurrentWeek();
   const targetWeekRange = week <= 2 ? '1-2' : 
@@ -298,7 +324,12 @@ function getTodayRoutine() {
                           week <= 6 ? '5-6' : 
                           week <= 8 ? '7-8' : '9-12';
   
-  return routines.find(r => r.weekRange === targetWeekRange) || routines[0];
+  // Buscar rutina mixta específica
+  const mixtoId = `week-${targetWeekRange}-mixto`;
+  return routines.find(r => r.id === mixtoId) || 
+         routines.find(r => r.weekRange === targetWeekRange && r.type === 'mixto') ||
+         routines.find(r => r.weekRange === targetWeekRange) || 
+         routines[0];
 }
 
 function RoutinesList() {
